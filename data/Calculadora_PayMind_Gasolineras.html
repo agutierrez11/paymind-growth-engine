@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora de Ahorro y Margen Gasolineras | PayMind Multi-Adquirencia</title>
+  <meta name="description" content="Simula en tiempo real el ahorro operativo y el incremento en margen neto que obtiene tu estación de servicio con la Multi-Adquirencia de PayMind.">
+
+  <!-- Google Fonts: Outfit & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- ======================================================== -->
+  <!-- MICROSOFT CLARITY SCRIPT (Coloca tu ID en window.CLARITY_ID) -->
+  <!-- ======================================================== -->
+  <script type="text/javascript">
+    // REEMPLAZA ESTE ID CON TU CÓDIGO DE CLARITY
+    window.CLARITY_ID = "TU_CLARITY_PROJECT_ID"; 
+
+    if (window.CLARITY_ID && window.CLARITY_ID !== "TU_CLARITY_PROJECT_ID") {
+      (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+      })(window, document, "clarity", "script", window.CLARITY_ID);
+    }
+
+    // Función auxiliar para registrar eventos personalizados en Clarity
+    function trackClarityEvent(eventName, eventData) {
+      if (typeof window.clarity === "function") {
+        window.clarity("event", eventName, eventData);
+      }
+      console.log(`[Clarity Event] ${eventName}:`, eventData);
+    }
+  </script>
+
+  <style>
+    :root {
+      --bg-dark: #07090E;
+      --bg-card: #0F141F;
+      --bg-card-hover: #151C2C;
+      --bg-input: #151B27;
+      --border-color: #1E283D;
+      --border-accent: rgba(0, 229, 153, 0.25);
+      
+      --accent-green: #00E599;
+      --accent-green-hover: #00C784;
+      --accent-green-glow: rgba(0, 229, 153, 0.15);
+      --accent-cyan: #00B4D8;
+      --accent-orange: #FF9F1C;
+      --accent-red: #FF4D4D;
+      
+      --text-main: #FFFFFF;
+      --text-muted: #8E9BAE;
+      --text-dim: #5A6679;
+
+      --font-main: 'Outfit', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: var(--font-main);
+      line-height: 1.5;
+      min-height: 100vh;
+      overflow-x: hidden;
+      background-image: 
+        radial-gradient(circle at 10% 20%, rgba(0, 229, 153, 0.05) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(0, 180, 216, 0.04) 0%, transparent 40%);
+    }
+
+    .container {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 32px 24px 80px 24px;
+    }
+
+    /* HEADER */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border-color);
+      margin-bottom: 36px;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-badge {
+      background: linear-gradient(135deg, #00E599 0%, #00B4D8 100%);
+      color: #07090E;
+      font-weight: 800;
+      font-size: 18px;
+      padding: 6px 12px;
+      border-radius: 8px;
+      letter-spacing: -0.5px;
+    }
+
+    .logo-title {
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+
+    .logo-title span {
+      color: var(--accent-green);
+    }
+
+    .header-tag {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 13px;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent-green);
+      box-shadow: 0 0 10px var(--accent-green);
+    }
+
+    /* HERO INTRO */
+    .hero {
+      text-align: center;
+      max-width: 840px;
+      margin: 0 auto 40px auto;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--accent-green);
+      background: var(--accent-green-glow);
+      border: 1px solid var(--border-accent);
+      padding: 6px 16px;
+      border-radius: 30px;
+      margin-bottom: 16px;
+    }
+
+    .hero h1 {
+      font-size: 38px;
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 12px;
+      letter-spacing: -1px;
+    }
+
+    .hero h1 span {
+      background: linear-gradient(135deg, #00E599 20%, #00B4D8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      color: var(--text-muted);
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    /* MAIN GRID */
+    .calc-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      gap: 32px;
+      align-items: start;
+    }
+
+    @media (max-width: 960px) {
+      .calc-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* CARD STYLING */
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 28px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    .card-title {
+      font-size: 19px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 14px;
+    }
+
+    .card-title .icon-tag {
+      font-size: 12px;
+      font-family: var(--font-mono);
+      background: var(--bg-input);
+      border: 1px solid var(--border-color);
+      padding: 4px 10px;
+      border-radius: 6px;
+      color: var(--text-muted);
+    }
+
+    /* SLIDERS & INPUTS */
+    .input-group {
+      margin-bottom: 22px;
+    }
+
+    .input-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .input-label {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-main);
+    }
+
+    .input-value {
+      font-family: var(--font-mono);
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--accent-green);
+      background: var(--bg-input);
+      padding: 3px 10px;
+      border-radius: 6px;
+      border: 1px solid var(--border-color);
+    }
+
+    .range-slider {
+      width: 100%;
+      height: 8px;
+      border-radius: 4px;
+      background: var(--bg-input);
+      outline: none;
+      -webkit-appearance: none;
+      cursor: pointer;
+    }
+
+    .range-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--accent-green);
+      cursor: pointer;
+      box-shadow: 0 0 12px var(--accent-green);
+      transition: transform 0.1s ease;
+    }
+
+    .range-slider::-webkit-slider-thumb:hover {
+      transform: scale(1.15);
+    }
+
+    .input-hints {
+      display: flex;
+      justify-content: space-between;
+      font-size: 11px;
+      color: var(--text-dim);
+      margin-top: 4px;
+      font-family: var(--font-mono);
+    }
+
+    /* PRESETS BUTTONS */
+    .presets-container {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+
+    .preset-btn {
+      background: var(--bg-input);
+      border: 1px solid var(--border-color);
+      color: var(--text-muted);
+      font-family: var(--font-main);
+      font-size: 12px;
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .preset-btn:hover {
+      border-color: var(--accent-green);
+      color: var(--text-main);
+    }
+
+    .preset-btn.active {
+      background: var(--accent-green-glow);
+      border-color: var(--accent-green);
+      color: var(--accent-green);
+    }
+
+    /* RESULTS CARD HIGHLIGHTS */
+    .results-card {
+      background: linear-gradient(180deg, rgba(15, 20, 31, 0.95) 0%, rgba(10, 14, 22, 0.98) 100%);
+      border: 1px solid var(--border-accent);
+      position: relative;
+    }
+
+    .glow-effect {
+      position: absolute;
+      top: -50px;
+      right: -50px;
+      width: 150px;
+      height: 150px;
+      background: radial-gradient(circle, rgba(0, 229, 153, 0.2) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .main-metric {
+      background: var(--bg-input);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    .main-metric-label {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+      margin-bottom: 6px;
+    }
+
+    .main-metric-value {
+      font-size: 42px;
+      font-weight: 800;
+      color: var(--accent-green);
+      font-family: var(--font-mono);
+      line-height: 1.1;
+      letter-spacing: -1px;
+    }
+
+    .main-metric-sub {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-top: 6px;
+    }
+
+    .secondary-metrics {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .mini-metric {
+      background: var(--bg-input);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 14px;
+    }
+
+    .mini-metric-label {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+      font-family: var(--font-mono);
+      text-transform: uppercase;
+    }
+
+    .mini-metric-value {
+      font-size: 20px;
+      font-weight: 700;
+      font-family: var(--font-mono);
+      color: var(--text-main);
+    }
+
+    .mini-metric-value.highlight-cyan {
+      color: var(--accent-cyan);
+    }
+
+    .mini-metric-value.highlight-orange {
+      color: var(--accent-orange);
+    }
+
+    /* COMPARISON BREAKDOWN TABLE */
+    .breakdown-box {
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 24px;
+    }
+
+    .breakdown-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 11px 14px;
+      font-size: 13px;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .breakdown-row:last-child {
+      border-bottom: none;
+    }
+
+    .breakdown-row.header {
+      background: var(--bg-input);
+      font-weight: 600;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      text-transform: uppercase;
+    }
+
+    .breakdown-row.current-cost {
+      color: var(--accent-red);
+    }
+
+    .breakdown-row.paymind-cost {
+      color: var(--accent-green);
+      font-weight: 600;
+    }
+
+    /* INSIGHT BANNER */
+    .insight-banner {
+      background: rgba(0, 180, 216, 0.08);
+      border: 1px solid rgba(0, 180, 216, 0.3);
+      border-radius: 10px;
+      padding: 14px;
+      font-size: 13px;
+      color: #BDE0FE;
+      margin-bottom: 24px;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .insight-icon {
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    /* CTA BAR */
+    .cta-container {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #00E599 0%, #00C784 100%);
+      color: #07090E;
+      font-family: var(--font-main);
+      font-weight: 700;
+      font-size: 15px;
+      padding: 14px 20px;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 15px rgba(0, 229, 153, 0.3);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 229, 153, 0.4);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--text-muted);
+      border: 1px solid var(--border-color);
+      font-family: var(--font-main);
+      font-weight: 600;
+      font-size: 13px;
+      padding: 10px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--text-main);
+      color: var(--text-main);
+    }
+
+    /* FOOTER & TELEMETRY NOTICE */
+    footer {
+      margin-top: 60px;
+      text-align: center;
+      color: var(--text-dim);
+      font-size: 13px;
+      border-top: 1px solid var(--border-color);
+      padding-top: 24px;
+    }
+
+    footer a {
+      color: var(--accent-green);
+      text-decoration: none;
+    }
+
+    /* PRINT STYLES */
+    @media print {
+      body {
+        background: #fff;
+        color: #000;
+      }
+      .container {
+        padding: 0;
+      }
+      .card {
+        border: 1px solid #ccc;
+        box-shadow: none;
+        background: #fff;
+        color: #000;
+      }
+      .btn-primary, .btn-secondary, .presets-container, .range-slider {
+        display: none;
+      }
+      .main-metric-value {
+        color: #00875A;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    
+    <!-- HEADER -->
+    <header>
+      <div class="logo-container">
+        <div class="logo-badge">PayMind</div>
+        <div class="logo-title">Multi-Adquirente <span>Fuel</span></div>
+      </div>
+      <div class="header-tag">
+        <div class="status-dot"></div>
+        Simulador de Margen y Comisiones B2B
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <div class="hero">
+      <div class="hero-badge">⚡ Calculadora Financiera para Estaciones de Servicio</div>
+      <h1>¿Cuánto dinero extra recupera tu gasolinera con <span>PayMind</span>?</h1>
+      <p>Ajusta tu facturación mensual en bombas y tu tasa bancaria actual para calcular en tiempo real el ahorro operativo y el incremento en utilidad neta.</p>
+    </div>
+
+    <!-- PRESETS RAPIDOS -->
+    <div style="text-align: center; margin-bottom: 12px;">
+      <span style="font-size: 12px; color: var(--text-dim); text-transform: uppercase; font-family: var(--font-mono);">Escenarios Típicos de Gasolineras:</span>
+    </div>
+    <div class="presets-container" style="justify-content: center;">
+      <button class="preset-btn" onclick="applyPreset(2000000, 1.85, 1.10, 8, 'Estación Urbana Pequeña (8 bombas)')">⛽ 1 Estación ($2M/mes)</button>
+      <button class="preset-btn active" onclick="applyPreset(5000000, 1.80, 1.05, 16, 'Estación Carretera / Alto Flujo (16 bombas)')">⛽ Estación Alto Flujo ($5M/mes)</button>
+      <button class="preset-btn" onclick="applyPreset(15000000, 1.75, 0.98, 36, 'Grupo de 3 Estaciones ($15M/mes)')">🏢 Grupo 3 Estaciones ($15M/mes)</button>
+      <button class="preset-btn" onclick="applyPreset(40000000, 1.70, 0.95, 80, 'Grupo Gasolinero (+8 Estaciones)')">🏆 Grupo (+8 Estaciones - $40M/mes)</button>
+    </div>
+
+    <!-- MAIN GRID -->
+    <div class="calc-grid">
+      
+      <!-- CONTROLES (IZQUIERDA) -->
+      <div class="card">
+        <div class="card-title">
+          <span>Variables de tu Operación</span>
+          <span class="icon-tag">Parámetros</span>
+        </div>
+
+        <!-- 1. FACTURACIÓN MENSUAL CON TARJETA -->
+        <div class="input-group">
+          <div class="input-header">
+            <span class="input-label">Facturación Mensual con Tarjeta en Bombas:</span>
+            <span class="input-value" id="val-facturacion">$5,000,000 MXN</span>
+          </div>
+          <input type="range" class="range-slider" id="slider-facturacion" min="500000" max="30000000" step="250000" value="5000000" oninput="calculate()">
+          <div class="input-hints">
+            <span>$500k MXN</span>
+            <span>$15M MXN</span>
+            <span>$30M+ MXN</span>
+          </div>
+        </div>
+
+        <!-- 2. TASA COMISION ACTUAL (BANCO TRADICIONAL) -->
+        <div class="input-group">
+          <div class="input-header">
+            <span class="input-label">Tasa de Comisión Actual (Adquirente Único / Banco):</span>
+            <span class="input-value" id="val-tasa-actual" style="color: var(--accent-red);">1.80%</span>
+          </div>
+          <input type="range" class="range-slider" id="slider-tasa-actual" min="1.10" max="2.60" step="0.05" value="1.80" oninput="calculate()">
+          <div class="input-hints">
+            <span>1.10% (Muy negociada)</span>
+            <span>1.80% (Promedio)</span>
+            <span>2.60% (Alta)</span>
+          </div>
+        </div>
+
+        <!-- 3. TASA PROMEDIO PAYMIND MULTI-ADQUIRENTE -->
+        <div class="input-group">
+          <div class="input-header">
+            <span class="input-label">Tasa Optimizada PayMind (Ruteo Multi-Adquirente):</span>
+            <span class="input-value" id="val-tasa-paymind" style="color: var(--accent-green);">1.05%</span>
+          </div>
+          <input type="range" class="range-slider" id="slider-tasa-paymind" min="0.75" max="1.30" step="0.05" value="1.05" oninput="calculate()">
+          <div class="input-hints">
+            <span>0.75% (Débito/Volumen)</span>
+            <span>1.05% (Mix típico)</span>
+            <span>1.30% (Crédito)</span>
+          </div>
+        </div>
+
+        <!-- 4. NUMERO DE BOMBAS / DISPENSARIOS -->
+        <div class="input-group">
+          <div class="input-header">
+            <span class="input-label">Total de Posiciones de Carga (Bombas):</span>
+            <span class="input-value" id="val-bombas">16 Bombas</span>
+          </div>
+          <input type="range" class="range-slider" id="slider-bombas" min="4" max="64" step="2" value="16" oninput="calculate()">
+          <div class="input-hints">
+            <span>4 Bombas</span>
+            <span>24 Bombas</span>
+            <span>64 Bombas</span>
+          </div>
+        </div>
+
+        <!-- 5. TICKET PROMEDIO DE CARGA -->
+        <div class="input-group" style="margin-bottom: 0;">
+          <div class="input-header">
+            <span class="input-label">Ticket Promedio por Carga de Combustible:</span>
+            <span class="input-value" id="val-ticket">$650 MXN</span>
+          </div>
+          <input type="range" class="range-slider" id="slider-ticket" min="250" max="1500" step="50" value="650" oninput="calculate()">
+          <div class="input-hints">
+            <span>$250 MXN (Motos/Sedán)</span>
+            <span>$650 MXN (Promedio)</span>
+            <span>$1,500 MXN (SUV/Diesel)</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- RESULTADOS DE IMPACTO FINANCIERO (DERECHA) -->
+      <div class="card results-card">
+        <div class="glow-effect"></div>
+
+        <div class="card-title">
+          <span>Impacto Financiero Proyectado</span>
+          <span class="icon-tag" style="color: var(--accent-green); border-color: var(--border-accent);">Multi-Adquirencia</span>
+        </div>
+
+        <!-- GRAN METRICA: AHORRO ANUAL -->
+        <div class="main-metric">
+          <div class="main-metric-label">💰 Ahorro Neto Recuperado (Anual)</div>
+          <div class="main-metric-value" id="res-ahorro-anual">$450,000 MXN</div>
+          <div class="main-metric-sub">
+            Equivalente a <strong id="res-ahorro-mensual" style="color: var(--accent-green);">$37,500 MXN</strong> libres cada mes
+          </div>
+        </div>
+
+        <!-- METRICAS SECUNDARIAS -->
+        <div class="secondary-metrics">
+          <div class="mini-metric">
+            <div class="mini-metric-label">Diferencial de Tasa</div>
+            <div class="mini-metric-value highlight-cyan" id="res-dif-tasa">-0.75%</div>
+          </div>
+          <div class="mini-metric">
+            <div class="mini-metric-label">Ahorro a 3 Años</div>
+            <div class="mini-metric-value highlight-orange" id="res-ahorro-3anos">$1,350,000</div>
+          </div>
+        </div>
+
+        <!-- COMPARATIVA DETALLADA -->
+        <div class="breakdown-box">
+          <div class="breakdown-row header">
+            <span>Concepto</span>
+            <span>Mensual</span>
+            <span>Anual</span>
+          </div>
+          <div class="breakdown-row current-cost">
+            <span>🔴 Con Banco Actual (<span id="txt-tasa-actual">1.80%</span>)</span>
+            <span id="res-costo-actual-mes">$90,000</span>
+            <span id="res-costo-actual-ano">$1,080,000</span>
+          </div>
+          <div class="breakdown-row paymind-cost">
+            <span>🟢 Con PayMind (<span id="txt-tasa-paymind">1.05%</span>)</span>
+            <span id="res-costo-paymind-mes">$52,500</span>
+            <span id="res-costo-paymind-ano">$630,000</span>
+          </div>
+        </div>
+
+        <!-- INSIGHT DE MARGEN NETO -->
+        <div class="insight-banner">
+          <div class="insight-icon">💡</div>
+          <div id="insight-text">
+            <strong>Impacto en Utilidad Neta:</strong> En gasolineras con un margen promedio de utilidad bruta del 4%, recuperar <strong>0.75% de facturación</strong> incrementa directamente tu utilidad operativa en un <strong>+18.7%</strong>.
+          </div>
+        </div>
+
+        <!-- BOTONES DE ACCIÓN (CTAs) -->
+        <div class="cta-container">
+          <a id="btn-whatsapp" href="#" target="_blank" class="btn-primary" onclick="trackClarityEvent('cta_whatsapp_clicked', { facturacion: getFacturacion() })">
+            <span>📲 Solicitar Diagnóstico de Tasas por WhatsApp</span>
+          </a>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+            <a id="btn-email" href="#" class="btn-secondary" onclick="trackClarityEvent('cta_email_clicked', {})">
+              <span>✉️ Enviar a mi Correo</span>
+            </a>
+            <button class="btn-secondary" onclick="window.print(); trackClarityEvent('cta_print_clicked', {});">
+              <span>🖨️ Imprimir / Guardar PDF</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+      <p>© 2026 PayMind México — Tecnología de Procesamiento Multi-Adquirente para Estaciones de Servicio.</p>
+      <p style="margin-top: 6px; font-size: 12px;">
+        Contacto directo: <strong>Antonio Gutiérrez</strong> · <a href="mailto:antonio.gutierrez@paymind.mx">antonio.gutierrez@paymind.mx</a> · <a href="https://paymind.mx" target="_blank">paymind.mx</a>
+      </p>
+    </footer>
+
+  </div>
+
+  <script>
+    // FORMATEADORES DE MONEDA
+    const formatMXN = (val) => '$' + Math.round(val).toLocaleString('es-MX') + ' MXN';
+    const formatShort = (val) => '$' + Math.round(val).toLocaleString('es-MX');
+
+    function getFacturacion() {
+      return parseFloat(document.getElementById('slider-facturacion').value);
+    }
+
+    function calculate() {
+      const facturacion = parseFloat(document.getElementById('slider-facturacion').value);
+      const tasaActual = parseFloat(document.getElementById('slider-tasa-actual').value);
+      const tasaPaymind = parseFloat(document.getElementById('slider-tasa-paymind').value);
+      const bombas = parseInt(document.getElementById('slider-bombas').value);
+      const ticket = parseFloat(document.getElementById('slider-ticket').value);
+
+      // Actualizar etiquetas de valores de entrada
+      document.getElementById('val-facturacion').textContent = formatMXN(facturacion);
+      document.getElementById('val-tasa-actual').textContent = tasaActual.toFixed(2) + '%';
+      document.getElementById('val-tasa-paymind').textContent = tasaPaymind.toFixed(2) + '%';
+      document.getElementById('val-bombas').textContent = bombas + ' Bombas';
+      document.getElementById('val-ticket').textContent = '$' + ticket.toLocaleString('es-MX') + ' MXN';
+
+      document.getElementById('txt-tasa-actual').textContent = tasaActual.toFixed(2) + '%';
+      document.getElementById('txt-tasa-paymind').textContent = tasaPaymind.toFixed(2) + '%';
+
+      // Cálculos Financieros
+      const costoActualMes = facturacion * (tasaActual / 100);
+      const costoActualAno = costoActualMes * 12;
+
+      const costoPaymindMes = facturacion * (tasaPaymind / 100);
+      const costoPaymindAno = costoPaymindMes * 12;
+
+      const ahorroMes = Math.max(0, costoActualMes - costoPaymindMes);
+      const ahorroAno = ahorroMes * 12;
+      const ahorro3Anos = ahorroAno * 3;
+      const difTasa = tasaActual - tasaPaymind;
+
+      // Actualizar Salidas en UI
+      document.getElementById('res-ahorro-anual').textContent = formatMXN(ahorroAno);
+      document.getElementById('res-ahorro-mensual').textContent = formatMXN(ahorroMes);
+      document.getElementById('res-dif-tasa').textContent = '-' + difTasa.toFixed(2) + '%';
+      document.getElementById('res-ahorro-3anos').textContent = formatShort(ahorro3Anos) + ' MXN';
+
+      document.getElementById('res-costo-actual-mes').textContent = formatShort(costoActualMes);
+      document.getElementById('res-costo-actual-ano').textContent = formatShort(costoActualAno);
+
+      document.getElementById('res-costo-paymind-mes').textContent = formatShort(costoPaymindMes);
+      document.getElementById('res-costo-paymind-ano').textContent = formatShort(costoPaymindAno);
+
+      // Insight dinámico de utilidad en combustible
+      const impactoUtilidad = ((difTasa / 4.0) * 100).toFixed(1);
+      document.getElementById('insight-text').innerHTML = `
+        <strong>Impacto en Margen Operativo:</strong> Con un margen promedio de utilidad bruta del 4% en venta de litros, recuperar <strong>${difTasa.toFixed(2)}%</strong> de comisión bancaria incrementa tu utilidad neta en <strong>+${impactoUtilidad}%</strong> directo al flujo de caja.
+      `;
+
+      // Actualizar Enlaces de Contacto Dinámicos
+      const waMsg = encodeURIComponent(
+        `Hola Antonio, coticé en la calculadora de PayMind una facturación de ${formatShort(facturacion)} MXN con tasa actual de ${tasaActual.toFixed(2)}% (${bombas} bombas). Me interesa revisar la propuesta de ahorro de ${formatShort(ahorroAno)} MXN al año.`
+      );
+      document.getElementById('btn-whatsapp').href = `https://wa.me/5218112345678?text=${waMsg}`;
+
+      const emailSubject = encodeURIComponent(`Diagnóstico de Tasas PayMind - Ahorro estimado ${formatShort(ahorroAno)} MXN`);
+      const emailBody = encodeURIComponent(
+        `Hola Antonio,\n\nEstuve revisando la calculadora de PayMind para mi estación de servicio con los siguientes datos:\n- Facturación mensual con tarjeta: ${formatShort(facturacion)} MXN\n- Tasa actual: ${tasaActual.toFixed(2)}%\n- Bombas: ${bombas}\n- Ahorro anual estimado: ${formatShort(ahorroAno)} MXN\n\n¿Cuándo podemos agendar una llamada de 10 minutos para revisar opciones de integración?\n\nSaludos.`
+      );
+      document.getElementById('btn-email').href = `mailto:antonio.gutierrez@paymind.mx?subject=${emailSubject}&body=${emailBody}`;
+
+      // Enviar evento de telemetría a Clarity (con debounce para no saturar)
+      debounceClarityTrack(facturacion, difTasa, ahorroAno);
+    }
+
+    // APLICAR PRESETS
+    function applyPreset(fact, tasaAct, tasaPay, bombs, name) {
+      document.getElementById('slider-facturacion').value = fact;
+      document.getElementById('slider-tasa-actual').value = tasaAct;
+      document.getElementById('slider-tasa-paymind').value = tasaPay;
+      document.getElementById('slider-bombas').value = bombs;
+
+      document.querySelectorAll('.preset-btn').forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+
+      trackClarityEvent('preset_selected', { preset_name: name, facturacion: fact });
+      calculate();
+    }
+
+    // DEBOUNCE PARA TELEMETRÍA CLARITY
+    let debounceTimer;
+    function debounceClarityTrack(fact, dif, ahorro) {
+      clearTimeout(debounceTimer);
+      debounceTimer = setTimeout(() => {
+        trackClarityEvent('calculation_updated', {
+          facturacion_mxn: fact,
+          diferencial_tasa: dif,
+          ahorro_anual_mxn: ahorro
+        });
+      }, 1200);
+    }
+
+    // INICIALIZAR AL CARGAR
+    window.addEventListener('DOMContentLoaded', () => {
+      calculate();
+    });
+  </script>
+
+</body>
+</html>
