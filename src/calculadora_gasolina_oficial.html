@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>PayMind — Calculadora Fiscal & Financiera para Gasolineras</title>
-  <meta name="description" content="PayMind — Simulador oficial del margen neto, carga impositiva DOF y ahorro frente a comisiones bancarias tradicionales.">
+  <title>PayMind — Calculadora Fiscal & Financiera de Adquirencia</title>
+  <meta name="description" content="Simulador oficial de comisiones bancarias, margen neto y carga impositiva DOF para estaciones de servicio en México.">
 
   <!-- Google Fonts: Source Code Pro & Source Sans 3 -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,31 +12,32 @@
   <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
-    /* ===== DESIGN SYSTEM TOKENS ===== */
+    /* ===== DESIGN SYSTEM TOKENS (VIBRANT · SOFT) ===== */
     :root {
-      /* Colors */
+      /* Color Palette */
       --pm-teal: #00A980;
       --pm-teal-700: #0B6F5E;
       --pm-deep: #063D39;
       --pm-cream: #FAF5EA;
       --pm-bg: #F9F8E2;
       --pm-elevated: #FDFCE8;
-      --pm-card-bg: #FFFFFF;
-      --pm-ink: #273242;
-      --pm-ink-dark: #111827;
-      --pm-muted: #6B7280;
-      --pm-dim: #9CA3AF;
-      --pm-border-color: #D6E5DF;
+      --pm-ink: #333333;
+      --pm-muted: #898989;
       --pm-accent-blue: #0000EE;
+      --pm-cta-green: #25D366;
       --pm-rose: #E11D48;
       --pm-amber: #D97706;
 
-      /* Glassmorphism & Elevation */
-      --glass-bg: rgba(255, 255, 255, 0.65);
-      --glass-bd: rgba(255, 255, 255, 0.85);
-      --shadow-subtle: 0 4px 16px rgba(6, 61, 57, 0.05);
-      --shadow-medium: 0 10px 30px rgba(6, 61, 57, 0.08), 0 20px 40px rgba(6, 61, 57, 0.04);
-      --shadow-strong: 0 18px 45px rgba(6, 61, 57, 0.12);
+      /* Glass & Borders */
+      --glass-bg: rgba(255, 255, 255, 0.75);
+      --glass-bd: rgba(255, 255, 255, 0.55);
+      --border-subtle: #D6E5DF;
+
+      /* Elevation / Shadows */
+      --shadow-subtle: 0px 6px 26px rgba(6, 61, 57, 0.08);
+      --shadow-medium: 0px 18px 40px rgba(6, 61, 57, 0.08);
+      --shadow-strong: 0 10px 30px rgba(6, 61, 57, 0.12);
+      --shadow-hover: 0px 4px 16px rgba(0, 0, 0, 0.12);
 
       /* Typography */
       --font-mono: 'Source Code Pro', monospace;
@@ -44,13 +45,15 @@
 
       /* Radii */
       --radius-btn: 12px;
+      --radius-btn-sm: 8px;
       --radius-card: 18px;
       --radius-input: 10px;
-      --radius-chip: 9999px;
+      --radius-chip: 4px;
+      --radius-pill: 9999px;
 
       /* Motion */
-      --transition-fast: 0.18s ease;
-      --transition-normal: 0.22s ease;
+      --duration-fast: 0.18s;
+      --duration-normal: 0.22s;
     }
 
     * {
@@ -72,43 +75,43 @@
       padding-bottom: 80px;
       overflow-x: hidden;
       background-image: 
-        radial-gradient(circle at 10% 15%, rgba(0, 169, 128, 0.08) 0%, transparent 45%),
-        radial-gradient(circle at 90% 80%, rgba(211, 235, 225, 0.6) 0%, transparent 50%);
+        radial-gradient(circle at 15% 10%, #D3EBE1 0%, transparent 45%),
+        radial-gradient(circle at 85% 70%, rgba(211, 235, 225, 0.5) 0%, transparent 50%);
     }
 
     /* ===== NAVBAR INSTITUCIONAL ===== */
-    .pm-nav {
+    .site-nav {
       width: 100%;
       max-width: 1120px;
       padding: 24px 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid var(--pm-border-color);
+      border-bottom: 0.8px solid var(--border-subtle);
       margin-bottom: 40px;
     }
 
-    .brand-group {
+    .brand-link {
       display: flex;
       align-items: center;
       gap: 12px;
       text-decoration: none;
     }
 
-    .brand-logo {
-      width: 38px;
-      height: 38px;
+    .brand-icon-box {
+      width: 40px;
+      height: 40px;
       background: var(--pm-deep);
       border-radius: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 4px 12px rgba(6, 61, 57, 0.2);
+      box-shadow: var(--shadow-subtle);
     }
 
     .brand-title {
       font-family: var(--font-mono);
-      font-size: 1.6rem;
+      font-size: 1.65rem;
       font-weight: 900;
       color: var(--pm-deep);
       letter-spacing: -0.04em;
@@ -118,14 +121,20 @@
       color: var(--pm-teal);
     }
 
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
     .nav-badge-pill {
       display: inline-flex;
       align-items: center;
       gap: 8px;
       padding: 6px 14px;
-      background: var(--pm-cream);
-      border: 1px solid var(--pm-border-color);
-      border-radius: var(--radius-chip);
+      background: var(--pm-elevated);
+      border: 0.8px solid var(--border-subtle);
+      border-radius: var(--radius-pill);
       font-size: 0.76rem;
       font-family: var(--font-mono);
       color: var(--pm-teal-700);
@@ -133,50 +142,50 @@
       box-shadow: var(--shadow-subtle);
     }
 
-    .pulse-indicator {
-      width: 7px;
-      height: 7px;
+    .pulse-dot {
+      width: 8px;
+      height: 8px;
       background: var(--pm-teal);
       border-radius: 50%;
       box-shadow: 0 0 8px var(--pm-teal);
-      animation: pulseTeal 2s infinite ease-in-out;
+      animation: pulseAnim 2s infinite ease-in-out;
     }
 
-    @keyframes pulseTeal {
+    @keyframes pulseAnim {
       0% { transform: scale(0.9); opacity: 0.7; }
       50% { transform: scale(1.3); opacity: 1; }
       100% { transform: scale(0.9); opacity: 0.7; }
     }
 
-    .btn-demo-nav {
+    .btn-nav {
       background: var(--pm-teal);
       color: #FFFFFF;
       padding: 10px 22px;
-      border-radius: var(--radius-btn);
+      border-radius: var(--radius-btn-sm);
       font-family: var(--font-body);
       font-weight: 600;
       font-size: 0.9rem;
       text-decoration: none;
-      transition: all var(--transition-normal);
+      transition: all var(--duration-normal);
       box-shadow: 0 4px 14px rgba(0, 169, 128, 0.3);
       border: none;
     }
 
-    .btn-demo-nav:hover {
+    .btn-nav:hover {
       background: var(--pm-teal-700);
       transform: translateY(-1px);
-      box-shadow: 0 6px 20px rgba(0, 169, 128, 0.4);
+      box-shadow: var(--shadow-hover);
     }
 
     /* ===== HERO SECTION ===== */
     .hero {
       text-align: center;
-      max-width: 900px;
+      max-width: 1000px;
       padding: 0 20px;
       margin-bottom: 48px;
     }
 
-    .eyebrow-tag {
+    .eyebrow-chip {
       display: inline-block;
       font-family: var(--font-mono);
       font-size: 0.82rem;
@@ -184,47 +193,46 @@
       color: var(--pm-teal-700);
       text-transform: uppercase;
       letter-spacing: 0.12em;
-      margin-bottom: 16px;
-      background: rgba(0, 169, 128, 0.1);
-      padding: 4px 12px;
+      margin-bottom: 18px;
+      background: var(--pm-elevated);
+      border: 1px solid var(--border-subtle);
+      padding: 6px 14px;
       border-radius: var(--radius-chip);
     }
 
     h1 {
       font-family: var(--font-mono);
-      font-size: 3.2rem;
+      font-size: 4rem;
       font-weight: 900;
-      line-height: 1.08;
-      letter-spacing: -0.04em;
+      line-height: 1.05;
+      letter-spacing: 1.44px;
       color: var(--pm-deep);
-      margin-bottom: 18px;
+      margin-bottom: 20px;
       text-transform: uppercase;
     }
 
     @media (max-width: 768px) {
       h1 {
-        font-size: 2.2rem;
+        font-size: 2.3rem;
+        letter-spacing: 0.5px;
       }
     }
 
-    h1 span.highlight {
+    h1 span.teal-text {
       color: var(--pm-teal);
-      background: linear-gradient(135deg, #00A980 0%, #063D39 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
     }
 
-    .hero-lead {
+    .hero-subtitle {
       color: var(--pm-muted);
       font-size: 1.15rem;
       font-weight: 400;
-      max-width: 760px;
+      max-width: 780px;
       margin: 0 auto;
       line-height: 1.6;
     }
 
-    /* ===== BENTO CALCULATOR LAYOUT ===== */
-    .bento-grid {
+    /* ===== BENTO GRID LAYOUT ===== */
+    .bento-container {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 32px;
@@ -234,38 +242,38 @@
     }
 
     @media (max-width: 900px) {
-      .bento-grid {
+      .bento-container {
         grid-template-columns: 1fr;
         gap: 24px;
       }
     }
 
-    .bento-card {
-      background: var(--pm-card-bg);
-      border: 0.8px solid var(--pm-border-color);
+    .card {
+      background: #FFFFFF;
+      border: 0.8px solid rgba(255, 255, 255, 0.45);
       border-radius: var(--radius-card);
       padding: 32px;
       box-shadow: var(--shadow-medium);
       position: relative;
-      transition: box-shadow var(--transition-normal);
+      transition: all var(--duration-normal);
     }
 
-    .bento-card:hover {
+    .card:hover {
       box-shadow: var(--shadow-strong);
     }
 
-    .bento-card-header {
+    .card-head {
       display: flex;
       align-items: center;
       justify-content: space-between;
       margin-bottom: 24px;
       padding-bottom: 16px;
-      border-bottom: 1px solid var(--pm-border-color);
+      border-bottom: 1px solid var(--border-subtle);
     }
 
-    .bento-card-title {
+    h2 {
       font-family: var(--font-mono);
-      font-size: 1.18rem;
+      font-size: 1.25rem;
       font-weight: 900;
       color: var(--pm-deep);
       display: flex;
@@ -275,37 +283,37 @@
       letter-spacing: -0.02em;
     }
 
-    /* ===== INPUT CONTROLS ===== */
-    .field-group {
-      margin-bottom: 24px;
+    /* ===== FORM FIELDS ===== */
+    .form-group {
+      margin-bottom: 22px;
     }
 
-    .field-top {
+    .form-label-row {
       display: flex;
       justify-content: space-between;
       align-items: center;
       margin-bottom: 8px;
       font-size: 0.9rem;
       font-weight: 600;
-      color: var(--pm-ink-dark);
+      color: var(--pm-ink);
     }
 
-    .badge-value {
+    .val-chip {
       font-family: var(--font-mono);
       font-weight: 700;
       font-size: 0.88rem;
       color: var(--pm-teal-700);
-      background: var(--pm-cream);
+      background: var(--pm-elevated);
       padding: 3px 10px;
-      border-radius: 6px;
-      border: 1px solid var(--pm-border-color);
+      border-radius: var(--radius-chip);
+      border: 0.8px solid var(--border-subtle);
     }
 
     select {
       width: 100%;
       background: #FFFFFF;
-      border: 1.5px solid var(--pm-border-color);
-      color: var(--pm-ink-dark);
+      border: 0.8px solid var(--border-subtle);
+      color: var(--pm-ink);
       padding: 12px 14px;
       border-radius: var(--radius-input);
       font-family: var(--font-body);
@@ -313,12 +321,12 @@
       font-weight: 500;
       outline: none;
       cursor: pointer;
-      transition: all var(--transition-fast);
+      transition: border var(--duration-fast), box-shadow var(--duration-fast);
     }
 
     select:focus {
-      border-color: var(--pm-teal);
-      box-shadow: 0 0 0 3px rgba(0, 169, 128, 0.15);
+      border: 2px solid rgba(0, 169, 128, 0.45);
+      outline: none;
     }
 
     input[type="range"] {
@@ -328,19 +336,24 @@
       height: 8px;
       background: var(--pm-cream);
       border-radius: 4px;
-      border: 1px solid var(--pm-border-color);
+      border: 1px solid var(--border-subtle);
+      outline: none;
+    }
+
+    input[type="range"]:focus {
+      outline: 2px solid rgba(0, 169, 128, 0.45);
     }
 
     /* ===== DESGLOSE VISUAL DEL LITRO ===== */
-    .litro-box {
+    .litro-panel {
       background: var(--pm-elevated);
-      border: 1px solid var(--pm-border-color);
+      border: 0.8px solid var(--border-subtle);
       border-radius: 14px;
       padding: 20px;
       margin-bottom: 24px;
     }
 
-    .litro-head {
+    .litro-panel-title {
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -353,7 +366,7 @@
       margin-bottom: 12px;
     }
 
-    .bar-container {
+    .stacked-bar {
       height: 32px;
       border-radius: 8px;
       display: flex;
@@ -363,7 +376,7 @@
       box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
     }
 
-    .bar-part {
+    .bar-segment {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -374,59 +387,59 @@
       transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    .part-sat { background: #E11D48; }
-    .part-tar { background: #334155; }
-    .part-gas { background: var(--pm-teal); color: #FFFFFF; }
+    .seg-sat { background: var(--pm-rose); }
+    .seg-tar { background: #334155; }
+    .seg-gas { background: var(--pm-teal); color: #FFFFFF; }
 
-    .legend-grid {
+    .legend-table {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 10px;
       font-size: 0.82rem;
     }
 
-    .legend-row {
+    .legend-cell {
       display: flex;
       align-items: center;
       gap: 8px;
       color: var(--pm-muted);
     }
 
-    .dot-box {
+    .color-dot {
       width: 10px;
       height: 10px;
       border-radius: 3px;
       flex-shrink: 0;
     }
 
-    /* ===== RESULTADOS Y MÉTRICAS ===== */
-    .metric-tiles {
+    /* ===== MÉTRICAS Y CARDS ===== */
+    .metric-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 16px;
       margin-bottom: 24px;
     }
 
-    .metric-tile {
+    .metric-card {
       background: var(--pm-cream);
-      border: 1px solid var(--pm-border-color);
+      border: 0.8px solid var(--border-subtle);
       border-radius: 14px;
       padding: 18px;
-      transition: transform var(--transition-fast);
+      box-shadow: var(--shadow-subtle);
     }
 
-    .metric-tile.alert {
+    .metric-card.alert-card {
       background: #FFF1F2;
       border-color: #FECDD3;
     }
 
-    .metric-tile.highlight-green {
+    .metric-card.success-card {
       background: #ECFDF5;
       border-color: #A7F3D0;
     }
 
-    .tile-title {
-      font-size: 0.75rem;
+    .metric-tag {
+      font-size: 0.74rem;
       font-weight: 700;
       font-family: var(--font-mono);
       text-transform: uppercase;
@@ -435,36 +448,35 @@
       margin-bottom: 6px;
     }
 
-    .tile-num {
+    .metric-val {
       font-family: var(--font-mono);
-      font-size: 1.6rem;
+      font-size: 1.65rem;
       font-weight: 900;
       line-height: 1.1;
     }
 
-    .num-rose { color: #E11D48; }
-    .num-amber { color: #D97706; }
-    .num-green { color: var(--pm-teal-700); }
+    .c-rose { color: var(--pm-rose); }
+    .c-amber { color: var(--pm-amber); }
+    .c-teal { color: var(--pm-teal-700); }
 
-    /* ===== AUDITORÍA QWEN-CPS ===== */
-    .audit-card {
+    /* ===== DICTAMEN AUDITORÍA QWEN-CPS ===== */
+    .audit-box {
       background: #FFFFFF;
       border: 1.5px solid var(--pm-teal);
       border-radius: 14px;
       padding: 20px;
-      margin-bottom: 20px;
+      margin-bottom: 22px;
       box-shadow: var(--shadow-subtle);
-      position: relative;
     }
 
-    .audit-header {
+    .audit-top {
       display: flex;
       justify-content: space-between;
       align-items: center;
       margin-bottom: 12px;
     }
 
-    .audit-label {
+    .audit-badge {
       display: flex;
       align-items: center;
       gap: 8px;
@@ -475,36 +487,36 @@
       text-transform: uppercase;
     }
 
-    .btn-refresh {
-      background: var(--pm-cream);
-      border: 1px solid var(--pm-border-color);
+    .btn-recalc {
+      background: var(--pm-elevated);
+      border: 0.8px solid var(--border-subtle);
       color: var(--pm-teal-700);
       padding: 4px 10px;
-      border-radius: 6px;
+      border-radius: var(--radius-chip);
       font-size: 0.74rem;
       font-family: var(--font-mono);
       font-weight: 700;
       cursor: pointer;
-      transition: all var(--transition-fast);
+      transition: all var(--duration-fast);
     }
 
-    .btn-refresh:hover {
+    .btn-recalc:hover {
       background: var(--pm-teal);
       color: #FFFFFF;
       border-color: var(--pm-teal);
     }
 
-    .audit-content {
+    .audit-quote {
       font-size: 0.92rem;
       line-height: 1.65;
-      color: var(--pm-ink-dark);
+      color: var(--pm-ink);
       border-left: 3px solid var(--pm-teal);
       padding-left: 14px;
       font-style: italic;
     }
 
-    /* ===== ACTION BUTTON ===== */
-    .btn-action-primary {
+    /* ===== BOTÓN PRINCIPAL ===== */
+    .btn-primary-action {
       width: 100%;
       background: var(--pm-deep);
       color: #FFFFFF;
@@ -512,7 +524,7 @@
       padding: 16px;
       border-radius: var(--radius-btn);
       font-family: var(--font-mono);
-      font-size: 0.95rem;
+      font-size: 0.92rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.04em;
@@ -521,40 +533,40 @@
       align-items: center;
       justify-content: center;
       gap: 10px;
-      transition: all var(--transition-normal);
+      transition: all var(--duration-normal);
       box-shadow: 0 6px 18px rgba(6, 61, 57, 0.25);
     }
 
-    .btn-action-primary:hover {
+    .btn-primary-action:hover {
       background: var(--pm-teal-700);
       transform: translateY(-2px);
-      box-shadow: 0 10px 25px rgba(6, 61, 57, 0.35);
+      box-shadow: var(--shadow-hover);
     }
 
     /* ===== FOOTER ===== */
-    .page-footer {
+    .footer {
       margin-top: 60px;
       text-align: center;
       font-size: 0.8rem;
-      color: var(--pm-dim);
+      color: var(--pm-muted);
       font-family: var(--font-mono);
       max-width: 800px;
       line-height: 1.6;
     }
 
-    .page-footer a {
+    .footer a {
       color: var(--pm-teal-700);
       text-decoration: none;
-      font-weight: 600;
+      font-weight: 700;
     }
   </style>
 </head>
 <body>
 
   <!-- NAVBAR -->
-  <nav class="pm-nav">
-    <a href="https://paymind.mx" target="_blank" class="brand-group">
-      <div class="brand-logo">
+  <nav class="site-nav">
+    <a href="https://paymind.mx" target="_blank" class="brand-link">
+      <div class="brand-icon-box">
         <svg width="22" height="22" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M50 10L85 30V70L50 90L15 70V30L50 10Z" stroke="#00E599" stroke-width="10" stroke-linejoin="round"/>
           <path d="M50 32V68M35 44L50 52L65 44M35 56L50 64L65 56" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round"/>
@@ -563,40 +575,38 @@
       <div class="brand-title">Pay<span>Mind</span></div>
     </a>
 
-    <div style="display: flex; align-items: center; gap: 16px;">
+    <div class="nav-actions">
       <div class="nav-badge-pill">
         <div class="pulse-indicator"></div>
         DOF 124/2026 & SAT CFDI 24 Abril
       </div>
-      <a href="https://paymind.mx" target="_blank" class="btn-demo-nav">Solicita una Demo</a>
+      <a href="https://paymind.mx" target="_blank" class="btn-nav">Solicita una Demo</a>
     </div>
   </nav>
 
   <!-- HERO -->
   <header class="hero">
-    <div class="eyebrow-tag">Auditoría Financiera & Simulador de Adquirencia</div>
-    <h1>Desmonta el <span class="highlight">Impuesto Bancario</span> en tu Estación</h1>
-    <p class="hero-lead">
+    <div class="eyebrow-chip">Auditoría Financiera & Simulador de Adquirencia</div>
+    <h1>Desmonta el <span class="teal-text">Impuesto Bancario</span> en tu Estación</h1>
+    <p class="hero-subtitle">
       Los bancos tradicionales cobran comisiones sobre los $24 pesos brutos con 40% de impuestos (IEPS + IVA). 
       Calcula cuánto margen neto rescata tu grupo gasolinero con la infraestructura SmartPOS de PayMind.
     </p>
   </header>
 
-  <!-- CALCULATOR BENTO GRID -->
-  <main class="bento-grid">
+  <!-- BENTO GRID CALCULATOR -->
+  <main class="bento-container">
     
-    <!-- COLUMNA 1: CONTROLES DE LA ESTACIÓN -->
-    <div class="bento-card">
-      <div class="bento-card-header">
-        <div class="bento-card-title">
-          <span>⛽</span> Parámetros de Operación
-        </div>
+    <!-- COLUMNA 1: PARÁMETROS OPERATIVOS -->
+    <div class="card">
+      <div class="card-head">
+        <h2><span>⛽</span> Parámetros de Operación</h2>
       </div>
 
-      <div class="field-group">
-        <div class="field-top">
+      <div class="form-group">
+        <div class="form-label-row">
           <span>Región Comercial (PVP Oficial CRE)</span>
-          <span class="badge-value" id="lbl-region">Centro ($24.10/L)</span>
+          <span class="val-chip" id="lbl-region">Centro ($24.10/L)</span>
         </div>
         <select id="sel-region" onchange="actualizarRegion()">
           <option value="centro" data-pvp="24.10" selected>📍 Centro (CDMX, Edomex, Puebla) — $24.10/L</option>
@@ -607,115 +617,114 @@
         </select>
       </div>
 
-      <div class="field-group">
-        <div class="field-top">
+      <div class="form-group">
+        <div class="form-label-row">
           <span>Número de Estaciones de Servicio</span>
-          <span class="badge-value" id="lbl-estaciones">3 estaciones</span>
+          <span class="val-chip" id="lbl-estaciones">3 estaciones</span>
         </div>
         <input type="range" id="rng-estaciones" min="1" max="25" value="3" oninput="calcular()">
       </div>
 
-      <div class="field-group">
-        <div class="field-top">
+      <div class="form-group">
+        <div class="form-label-row">
           <span>Volumen Mensual (Litros por Estación)</span>
-          <span class="badge-value" id="lbl-litros">250,000 Lts</span>
+          <span class="val-chip" id="lbl-litros">250,000 Lts</span>
         </div>
         <input type="range" id="rng-litros" min="80000" max="800000" step="10000" value="250000" oninput="calcular()">
       </div>
 
-      <div class="field-group">
-        <div class="field-top">
-          <span>% Ventas con Tarjetas y Vales (Edenred/Sodexo)</span>
-          <span class="badge-value" id="lbl-tarjeta">65%</span>
+      <div class="form-group">
+        <div class="form-label-row">
+          <span>% Cobro con Tarjetas y Vales (Edenred/Sodexo)</span>
+          <span class="val-chip" id="lbl-tarjeta">65%</span>
         </div>
         <input type="range" id="rng-tarjeta" min="20" max="95" value="65" oninput="calcular()">
       </div>
 
-      <div class="field-group">
-        <div class="field-top">
+      <div class="form-group">
+        <div class="form-label-row">
           <span>Margen Bruto de Comercialización por Litro</span>
-          <span class="badge-value" id="lbl-margen">$1.10 MXN/L</span>
+          <span class="val-chip" id="lbl-margen">$1.10 MXN/L</span>
         </div>
         <input type="range" id="rng-margen" min="0.75" max="1.60" step="0.05" value="1.10" oninput="calcular()">
       </div>
 
-      <div class="field-group">
-        <div class="field-top">
+      <div class="form-group">
+        <div class="form-label-row">
           <span>Comisión Promedio Banco Tradicional</span>
-          <span class="badge-value" id="lbl-tasa-banco">2.00%</span>
+          <span class="val-chip" id="lbl-tasa-banco">2.00%</span>
         </div>
         <input type="range" id="rng-tasa-banco" min="1.40" max="2.60" step="0.05" value="2.00" oninput="calcular()">
       </div>
     </div>
 
-    <!-- COLUMNA 2: RADIOGRAFÍA FINANCIERA & AUDITORÍA -->
-    <div class="bento-card">
-      <div class="bento-card-header">
-        <div class="bento-card-title">
-          <span>📊</span> Radiografía Financiera PayMind
-        </div>
+    <!-- COLUMNA 2: RESULTADOS Y AUDITORÍA -->
+    <div class="card">
+      <div class="card-head">
+        <h2><span>📊</span> Radiografía Financiera PayMind</h2>
       </div>
 
       <!-- DESGLOSE LITRO -->
-      <div class="litro-box">
-        <div class="litro-head">
-          <span>Desglose por Litro</span>
+      <div class="litro-panel">
+        <div class="litro-panel-title">
+          <span>Desglose Impositivo & Comercial por Litro</span>
           <span id="txt-pvp-header">PVP: $24.10 MXN</span>
         </div>
-        <div class="bar-container">
-          <div class="bar-part part-sat" id="bar-tax" style="width: 37%;">SAT 37%</div>
-          <div class="bar-part part-tar" id="bar-mol" style="width: 58%;">TAR Pemex 58%</div>
-          <div class="bar-part part-gas" id="bar-gas" style="width: 5%;">5% Margen</div>
+        <div class="stacked-bar">
+          <div class="bar-segment seg-sat" id="bar-tax" style="width: 37%;">SAT 37%</div>
+          <div class="bar-segment seg-tar" id="bar-mol" style="width: 58%;">TAR Pemex 58%</div>
+          <div class="bar-segment seg-gas" id="bar-gas" style="width: 5%;">5% Margen</div>
         </div>
-        <div class="legend-grid">
-          <div class="legend-row"><div class="dot-box" style="background: #E11D48;"></div><span>IEPS ($5.60 DOF) + IVA: <b>$8.91/L</b></span></div>
-          <div class="legend-row"><div class="dot-box" style="background: #334155;"></div><span>Costo Molécula TAR: <b>~$14.09/L</b></span></div>
-          <div class="legend-row"><div class="dot-box" style="background: var(--pm-teal);"></div><span>Margen Gasolinero: <b id="leg-margen">$1.10/L</b></span></div>
-          <div class="legend-row"><div class="dot-box" style="background: #D97706;"></div><span>Mordida Banco: <b id="leg-banco">$0.48/L</b></span></div>
+        <div class="legend-table">
+          <div class="legend-cell"><div class="color-dot" style="background: var(--pm-rose);"></div><span>IEPS ($5.60 DOF) + IVA: <b>$8.91/L</b></span></div>
+          <div class="legend-cell"><div class="color-dot" style="background: #334155;"></div><span>Costo Molécula TAR: <b>~$14.09/L</b></span></div>
+          <div class="legend-cell"><div class="color-dot" style="background: var(--pm-teal);"></div><span>Margen Operador: <b id="leg-margen">$1.10/L</b></span></div>
+          <div class="legend-cell"><div class="color-dot" style="background: var(--pm-amber);"></div><span>Mordida Banco: <b id="leg-banco">$0.48/L</b></span></div>
         </div>
       </div>
 
       <!-- MÉTRICAS -->
-      <div class="metric-tiles">
-        <div class="metric-tile alert">
-          <div class="tile-title">% Ganancia Robada por Banco</div>
-          <div class="tile-num num-rose" id="res-mordida-pct">43.8%</div>
+      <div class="metric-grid">
+        <div class="metric-card alert-card">
+          <div class="metric-tag">% Utilidad Robada por Banco</div>
+          <div class="metric-val c-rose" id="res-mordida-pct">43.8%</div>
         </div>
-        <div class="metric-tile alert">
-          <div class="tile-title">Fuga Mensual en Comisiones</div>
-          <div class="tile-num num-amber" id="res-fuga-mensual">$234,975</div>
+        <div class="metric-card alert-card">
+          <div class="metric-tag">Fuga Mensual en Comisiones</div>
+          <div class="metric-val c-amber" id="res-fuga-mensual">$234,975</div>
         </div>
-        <div class="metric-tile highlight-green">
-          <div class="tile-title">Ahorro Mensual con PayMind</div>
-          <div class="tile-num num-green" id="res-ahorro-mensual">$70,492</div>
+        <div class="metric-card success-card">
+          <div class="metric-tag">Ahorro Mensual con PayMind</div>
+          <div class="metric-val c-teal" id="res-ahorro-mensual">$70,492</div>
         </div>
-        <div class="metric-tile highlight-green">
-          <div class="tile-title">Ahorro Anual Proyectado</div>
-          <div class="tile-num num-green" id="res-ahorro-anual">$845,910</div>
+        <div class="metric-card success-card">
+          <div class="metric-tag">Ahorro Anual Proyectado</div>
+          <div class="metric-val c-teal" id="res-ahorro-anual">$845,910</div>
         </div>
       </div>
 
-      <!-- DICTAMEN AUDITORÍA QWEN-CPS -->
-      <div class="audit-card">
-        <div class="audit-header">
-          <div class="audit-label">
+      <!-- AUDITORÍA QWEN-CPS -->
+      <div class="audit-box">
+        <div class="audit-top">
+          <div class="audit-badge">
             <span>🧠</span> Dictamen Auditoría Qwen-CPS
           </div>
-          <button class="btn-refresh" onclick="generarDictamen()">Recalcular</button>
+          <button class="btn-recalc" onclick="generarDictamen()">Recalcular</button>
         </div>
-        <div class="audit-content" id="txt-audit-result">
+        <div class="audit-quote" id="txt-audit-result">
           Generando dictamen con datos oficiales de DOF Acuerdo 124/2026...
         </div>
       </div>
 
-      <button class="btn-action-primary" onclick="copiarPitch()">
+      <button class="btn-primary-action" onclick="copiarPitch()">
         <span>📋</span> Copiar Pitch Quirúrgico para WhatsApp / Email
       </button>
     </div>
 
   </main>
 
-  <footer class="page-footer">
+  <!-- FOOTER -->
+  <footer class="footer">
     © 2026 PayMind México. Datos Oficiales: Diario Oficial de la Federación (Acuerdo 124/2026 - SHCP 14/08/2026) | SAT Anexo 30 & CFDI 24 Abril.
     <br><a href="https://paymind.mx" target="_blank">www.paymind.mx</a> — Infraestructura de Pagos Inteligente.
   </footer>
