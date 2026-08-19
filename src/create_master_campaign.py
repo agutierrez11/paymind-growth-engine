@@ -98,20 +98,20 @@ df_g['Compania'] = df_g['Compania'].astype(str).str.strip()
 df_g['Nombre'] = df_g['Nombre'].astype(str).str.strip()
 
 df_g['Asunto_Paso1_Apertura'] = df_g['Compania'].apply(
-    lambda x: f"{x} — El 40% de impuestos se come tu margen; tu banco se queda con el resto"
+    lambda x: f"{x} — Nuevo CFDI de Hidrocarburos SAT (24 de abril) y el 40% de impuestos"
 )
 df_g['Cuerpo_Paso1_Apertura'] = df_g.apply(
     lambda r: (
         f"Hola {r['Nombre']},\n\n"
-        f"Con una carga fiscal de casi el 40% entre IEPS ($5.60/L) e IVA en México, el margen bruto real de una estación apenas oscila entre $0.80 y $1.40 por litro.\n\n"
-        f"El problema crítico es que los bancos tradicionales cobran su comisión del 2% SOBRE EL PRECIO TOTAL DE $24 PESOS, devorando hasta el 43% de tu ganancia neta en cada despacho con tarjeta. "
-        f"A eso se suma la molestia de operar 3 o 4 terminales distintas en la bomba para vales (Edenred, Sodexo, SiVale) y el riesgo de multas del Anexo 30 del SAT por captura manual.\n\n"
-        f"En PayMind resolvemos esto para {r['Compania']} con:\n"
-        f"1. Una sola SmartPOS en bomba: Cobra bancarias y todos los vales en el mismo aparato.\n"
-        f"2. Integración App2App con Control Volumétrico: El dispensario pasa el monto exacto a la terminal en tiempo real (Cero multas SAT).\n"
-        f"3. Liquidación T+1: Liquidez inmediata al día siguiente para compra de pipas.\n\n"
-        f"¿Tienes 10 minutos este jueves para mostrarte la comparativa exacta de ahorro en comisiones para tus estaciones?\n\n"
-        f"Saludos,\nAntonio Gutiérrez\nConsultor Comercial | PayMind"
+        f"Con la fecha límite del 24 de abril para el nuevo Complemento CFDI de Hidrocarburos y Petrolíferos del SAT/SENER, "
+        f"las estaciones que no validen permisos ante la CNE quedarán bloqueadas para facturar. A eso se suma que el 40% de carga fiscal (IEPS + IVA) "
+        f"deja un margen bruto de apenas $0.80 a $1.40 por litro, mientras los bancos tradicionales cobran comisiones sobre los $24 pesos brutos.\n\n"
+        f"En PayMind ayudamos a grupos gasolineros como {r['Compania']} a blindar su operación con:\n"
+        f"1. Timbrado y Validación de Nuevo CFDI: Conexión transparente para no frenar la facturación de flotillas y empresas.\n"
+        f"2. Integración App2App en Bomba: El dispensario pasa el monto exacto a la SmartPOS en tiempo real (Cero discrepancias Anexo 30 SAT).\n"
+        f"3. Una sola terminal para bancarias y todos los vales (Edenred, Sodexo, SiVale) con liquidación T+1 para fondeo de pipas.\n\n"
+        f"¿Tienes 10 minutos este jueves para revisar cómo blindar la facturación del 24 de abril y rescatar hasta 40% de margen retenido por comisiones bancarias?\n\n"
+        f"Saludos,\nAntonio Gutiérrez\nConsultor de Crecimiento & Pagos | PayMind"
     ), axis=1
 )
 
