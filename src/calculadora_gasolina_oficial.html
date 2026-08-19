@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora Fiscal y Financiera PayMind — Gasolineras México</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #090D16;
+      --card-bg: #111827;
+      --card-border: #1F293D;
+      --accent-cyan: #06B6D4;
+      --accent-emerald: #10B981;
+      --accent-amber: #F59E0B;
+      --accent-rose: #F43F5E;
+      --text-main: #F8FAFC;
+      --text-muted: #94A3B8;
+      --text-dim: #64748B;
+      --font-main: 'Outfit', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: var(--font-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 30px 16px;
+      line-height: 1.5;
+    }
+
+    .header-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      background: rgba(6, 182, 212, 0.1);
+      border: 1px solid rgba(6, 182, 212, 0.3);
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-family: var(--font-mono);
+      color: var(--accent-cyan);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 16px;
+    }
+
+    .badge-pulse {
+      width: 8px;
+      height: 8px;
+      background-color: var(--accent-cyan);
+      border-radius: 50%;
+      box-shadow: 0 0 10px var(--accent-cyan);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(0.95); opacity: 0.8; }
+      50% { transform: scale(1.3); opacity: 1; }
+      100% { transform: scale(0.95); opacity: 0.8; }
+    }
+
+    h1 {
+      font-size: 2.1rem;
+      font-weight: 800;
+      text-align: center;
+      background: linear-gradient(135deg, #FFFFFF 30%, #94A3B8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 8px;
+      letter-spacing: -0.02em;
+    }
+
+    .subtitle {
+      color: var(--text-muted);
+      text-align: center;
+      font-size: 0.95rem;
+      max-width: 650px;
+      margin-bottom: 30px;
+    }
+
+    .grid-container {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 24px;
+      max-width: 1100px;
+      width: 100%;
+    }
+
+    @media (max-width: 900px) {
+      .grid-container {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
+    }
+
+    .card-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 1px solid var(--card-border);
+      padding-bottom: 12px;
+    }
+
+    .input-group {
+      margin-bottom: 20px;
+    }
+
+    .input-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    .input-header span.val {
+      font-family: var(--font-mono);
+      color: var(--accent-cyan);
+      font-weight: 700;
+    }
+
+    select, input[type="range"] {
+      width: 100%;
+    }
+
+    select {
+      background: #0B111E;
+      border: 1px solid var(--card-border);
+      color: var(--text-main);
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-family: var(--font-main);
+      font-size: 0.9rem;
+      outline: none;
+      cursor: pointer;
+    }
+
+    input[type="range"] {
+      accent-color: var(--accent-cyan);
+      cursor: pointer;
+    }
+
+    /* BARRA DE DESGLOSE DEL LITRO */
+    .breakdown-bar {
+      height: 28px;
+      border-radius: 8px;
+      display: flex;
+      overflow: hidden;
+      margin: 16px 0;
+      border: 1px solid var(--card-border);
+    }
+
+    .bar-seg {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      transition: all 0.3s ease;
+    }
+
+    .bar-tax { background: var(--accent-rose); }
+    .bar-cost { background: #334155; }
+    .bar-margin { background: var(--accent-emerald); }
+    .bar-bank { background: var(--accent-amber); }
+
+    .legend-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+      font-size: 0.78rem;
+      margin-bottom: 20px;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--text-muted);
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 3px;
+    }
+
+    /* RESULTADOS DESTACADOS */
+    .metrics-row {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+
+    .metric-box {
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 14px;
+    }
+
+    .metric-box.alert {
+      border-color: rgba(244, 63, 94, 0.4);
+      background: rgba(244, 63, 94, 0.06);
+    }
+
+    .metric-box.success {
+      border-color: rgba(16, 185, 129, 0.4);
+      background: rgba(16, 185, 129, 0.06);
+    }
+
+    .metric-label {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 4px;
+    }
+
+    .metric-val {
+      font-family: var(--font-mono);
+      font-size: 1.4rem;
+      font-weight: 800;
+    }
+
+    .metric-val.red { color: var(--accent-rose); }
+    .metric-val.green { color: var(--accent-emerald); }
+    .metric-val.yellow { color: var(--accent-amber); }
+
+    /* SECCIÓN DE DICTAMEN QWEN AI */
+    .ai-box {
+      background: #0B111E;
+      border: 1px solid rgba(6, 182, 212, 0.3);
+      border-radius: 12px;
+      padding: 16px;
+      margin-top: 16px;
+      position: relative;
+    }
+
+    .ai-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .ai-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.82rem;
+      font-family: var(--font-mono);
+      color: var(--accent-cyan);
+      font-weight: 700;
+    }
+
+    .btn-ai {
+      background: var(--accent-cyan);
+      color: #000000;
+      border: none;
+      border-radius: 6px;
+      padding: 6px 12px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: var(--font-main);
+      transition: opacity 0.2s;
+    }
+
+    .btn-ai:hover {
+      opacity: 0.85;
+    }
+
+    .ai-text {
+      font-size: 0.86rem;
+      color: var(--text-main);
+      line-height: 1.6;
+      border-left: 2px solid var(--accent-cyan);
+      padding-left: 12px;
+      font-style: italic;
+    }
+
+    .btn-copy {
+      display: block;
+      width: 100%;
+      margin-top: 16px;
+      padding: 12px;
+      background: #1E293B;
+      color: #FFFFFF;
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+      font-family: var(--font-main);
+    }
+
+    .btn-copy:hover {
+      background: #334155;
+    }
+
+    .footer-note {
+      margin-top: 30px;
+      font-size: 0.72rem;
+      color: var(--text-dim);
+      text-align: center;
+      font-family: var(--font-mono);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header-tag">
+    <div class="badge-pulse"></div>
+    DOF Acuerdo 124/2026 & SAT CFDI 24 Abril
+  </div>
+
+  <h1>Calculadora Fiscal & Financiera PayMind</h1>
+  <p class="subtitle">Simulador del "Impuesto Bancario Oculto" y Auditoría de Margen Neto para Estaciones de Servicio en México</p>
+
+  <div class="grid-container">
+    
+    <!-- COLUMNA IZQUIERDA: INPUTS Y REGULACIÓN -->
+    <div class="card">
+      <div class="card-title">
+        <span>⚙️</span> Parámetros Operativos de la Estación
+      </div>
+
+      <div class="input-group">
+        <div class="input-header">
+          <span>Región / Mercado Estatal</span>
+          <span class="val" id="lbl-region">Centro (CDMX/Edomex)</span>
+        </div>
+        <select id="sel-region" onchange="actualizarRegion()">
+          <option value="centro" data-pvp="24.10" selected>📍 Centro (CDMX, Edomex, Puebla) — $24.10/L</option>
+          <option value="norte" data-pvp="24.85">📍 Norte (Monterrey, Saltillo) — $24.85/L</option>
+          <option value="occidente" data-pvp="24.50">📍 Occidente (Guadalajara, Bajío) — $24.50/L</option>
+          <option value="sureste" data-pvp="25.20">📍 Sureste (Cancún, Riviera Maya) — $25.20/L</option>
+          <option value="frontera" data-pvp="19.80">📍 Frontera Norte (Tijuana, Juárez) — $19.80/L</option>
+        </select>
+      </div>
+
+      <div class="input-group">
+        <div class="input-header">
+          <span>Número de Estaciones de Servicio</span>
+          <span class="val" id="lbl-estaciones">3 estaciones</span>
+        </div>
+        <input type="range" id="rng-estaciones" min="1" max="25" value="3" oninput="calcular()">
+      </div>
+
+      <div class="input-group">
+        <div class="input-header">
+          <span>Volumen Mensual Despachado (Litros por Estación)</span>
+          <span class="val" id="lbl-litros">250,000 Lts</span>
+        </div>
+        <input type="range" id="rng-litros" min="80000" max="800000" step="10000" value="250000" oninput="calcular()">
+      </div>
+
+      <div class="input-group">
+        <div class="input-header">
+          <span>Porcentaje de Cobro con Tarjetas & Vales</span>
+          <span class="val" id="lbl-tarjeta">65%</span>
+        </div>
+        <input type="range" id="rng-tarjeta" min="20" max="95" value="65" oninput="calcular()">
+      </div>
+
+      <div class="input-group">
+        <div class="input-header">
+          <span>Margen Bruto de Comercialización por Litro</span>
+          <span class="val" id="lbl-margen">$1.10 MXN/L</span>
+        </div>
+        <input type="range" id="rng-margen" min="0.70" max="1.80" step="0.05" value="1.10" oninput="calcular()">
+      </div>
+
+      <div class="input-group">
+        <div class="input-header">
+          <span>Comisión Promedio Banco Tradicional (BBVA/Banorte)</span>
+          <span class="val" id="lbl-tasa-banco">2.00%</span>
+        </div>
+        <input type="range" id="rng-tasa-banco" min="1.40" max="2.80" step="0.05" value="2.00" oninput="calcular()">
+      </div>
+    </div>
+
+    <!-- COLUMNA DERECHA: RESULTADOS Y AUDITORÍA AI -->
+    <div class="card">
+      <div class="card-title">
+        <span>📊</span> Radiografía Financiera por Litro
+      </div>
+
+      <div class="breakdown-bar">
+        <div class="bar-seg bar-tax" id="bar-tax" style="width: 37%;">SAT 37%</div>
+        <div class="bar-seg bar-cost" id="bar-cost" style="width: 58%;">Pemex 58%</div>
+        <div class="bar-seg bar-margin" id="bar-margin" style="width: 5%;">Ganancia 5%</div>
+      </div>
+
+      <div class="legend-grid">
+        <div class="legend-item"><div class="dot" style="background: var(--accent-rose);"></div><span>IEPS ($5.60) + IVA (16%): <b>$8.91/L</b></span></div>
+        <div class="legend-item"><div class="dot" style="background: #334155;"></div><span>Costo Molécula en TAR: <b>~$14.09/L</b></span></div>
+        <div class="legend-item"><div class="dot" style="background: var(--accent-emerald);"></div><span>Margen Bruto Operador: <b id="leg-margen">$1.10/L</b></span></div>
+        <div class="legend-item"><div class="dot" style="background: var(--accent-amber);"></div><span>Mordida Banco Trad.: <b id="leg-banco">$0.48/L</b></span></div>
+      </div>
+
+      <div class="metrics-row">
+        <div class="metric-box alert">
+          <div class="metric-label">% Utilidad Robada por Banco</div>
+          <div class="metric-val red" id="res-porcentaje-banco">43.8%</div>
+        </div>
+        <div class="metric-box alert">
+          <div class="metric-label">Fuga Mensual en Comisiones</div>
+          <div class="metric-val yellow" id="res-fuga-mensual">$234,975</div>
+        </div>
+      </div>
+
+      <div class="metrics-row">
+        <div class="metric-box success">
+          <div class="metric-label">Ahorro Mensual con PayMind</div>
+          <div class="metric-val green" id="res-ahorro-mensual">$70,492</div>
+        </div>
+        <div class="metric-box success">
+          <div class="metric-label">Ahorro Anual Proyectado</div>
+          <div class="metric-val green" id="res-ahorro-anual">$845,910</div>
+        </div>
+      </div>
+
+      <!-- DICTAMEN INTELIGENTE (ESTILO QWEN / COMPLEX PROBLEM SOLVING) -->
+      <div class="ai-box">
+        <div class="ai-header">
+          <div class="ai-title">
+            <span>🧠</span> Dictamen Auditoría Qwen-CPS (Oficial)
+          </div>
+          <button class="btn-ai" onclick="generarDictamen()">Actualizar Análisis</button>
+        </div>
+        <div class="ai-text" id="txt-dictamen">
+          Generando dictamen con datos de DOF Acuerdo 124/2026...
+        </div>
+      </div>
+
+      <button class="btn-copy" onclick="copiarPitch()">📋 Copiar Pitch Quirúrgico para WhatsApp / Email</button>
+    </div>
+
+  </div>
+
+  <div class="footer-note">
+    Fuente Oficial: Diario Oficial de la Federación (Acuerdo 124/2026 - SHCP 14/08/2026) | SAT Anexo 30 & Complemento CFDI Hidrocarburos (24 Abril)
+  </div>
+
+  <script>
+    let pvpActual = 24.10;
+    const IEPS_OFICIAL = 5.5979; // Acuerdo 124/2026 DOF
+
+    function actualizarRegion() {
+      const sel = document.getElementById('sel-region');
+      const opt = sel.options[sel.selectedIndex];
+      pvpActual = parseFloat(opt.getAttribute('data-pvp'));
+      document.getElementById('lbl-region').innerText = opt.text.split('—')[0].trim();
+      calcular();
+    }
+
+    function calcular() {
+      const estaciones = parseInt(document.getElementById('rng-estaciones').value);
+      const litrosPorEstacion = parseInt(document.getElementById('rng-litros').value);
+      const pctTarjeta = parseInt(document.getElementById('rng-tarjeta').value) / 100;
+      const margenLitro = parseFloat(document.getElementById('rng-margen').value);
+      const tasaBanco = parseFloat(document.getElementById('rng-tasa-banco').value) / 100;
+
+      // Labels
+      document.getElementById('lbl-estaciones').innerText = `${estaciones} ${estaciones === 1 ? 'estación' : 'estaciones'}`;
+      document.getElementById('lbl-litros').innerText = `${litrosPorEstacion.toLocaleString('es-MX')} Lts`;
+      document.getElementById('lbl-tarjeta').innerText = `${(pctTarjeta * 100).toFixed(0)}%`;
+      document.getElementById('lbl-margen').innerText = `$${margenLitro.toFixed(2)} MXN/L`;
+      document.getElementById('lbl-tasa-banco').innerText = `${(tasaBanco * 100).toFixed(2)}%`;
+
+      // Cálculos Financieros
+      const ivaLitro = pvpActual * (0.16 / 1.16);
+      const totalImpuestos = IEPS_OFICIAL + ivaLitro;
+      const comisionBancoPorLitro = pvpActual * tasaBanco;
+      const mordidaPorcentaje = (comisionBancoPorLitro / margenLitro) * 100;
+
+      const litrosTotales = estaciones * litrosPorEstacion;
+      const litrosConTarjeta = litrosTotales * pctTarjeta;
+      const fugaMensualBanco = litrosConTarjeta * comisionBancoPorLitro;
+
+      // PayMind ahorra en promedio 30% optimizando tasas de adquirencia, switch y vales
+      const ahorroMensualPayMind = fugaMensualBanco * 0.30;
+      const ahorroAnualPayMind = ahorroMensualPayMind * 12;
+
+      // Actualizar DOM
+      document.getElementById('leg-margen').innerText = `$${margenLitro.toFixed(2)}/L`;
+      document.getElementById('leg-banco').innerText = `$${comisionBancoPorLitro.toFixed(2)}/L`;
+
+      document.getElementById('res-porcentaje-banco').innerText = `${mordidaPorcentaje.toFixed(1)}%`;
+      document.getElementById('res-fuga-mensual').innerText = `$${Math.round(fugaMensualBanco).toLocaleString('es-MX')}`;
+      document.getElementById('res-ahorro-mensual').innerText = `$${Math.round(ahorroMensualPayMind).toLocaleString('es-MX')}`;
+      document.getElementById('res-ahorro-anual').innerText = `$${Math.round(ahorroAnualPayMind).toLocaleString('es-MX')}`;
+
+      // Barra Gráfica
+      const pctTaxBar = (totalImpuestos / pvpActual) * 100;
+      const pctMarginBar = (margenLitro / pvpActual) * 100;
+      const pctCostBar = 100 - pctTaxBar - pctMarginBar;
+
+      document.getElementById('bar-tax').style.width = `${pctTaxBar.toFixed(1)}%`;
+      document.getElementById('bar-tax').innerText = `SAT ${pctTaxBar.toFixed(0)}%`;
+      document.getElementById('bar-cost').style.width = `${pctCostBar.toFixed(1)}%`;
+      document.getElementById('bar-cost').innerText = `TAR Pemex ${pctCostBar.toFixed(0)}%`;
+      document.getElementById('bar-margin').style.width = `${pctMarginBar.toFixed(1)}%`;
+      document.getElementById('bar-margin').innerText = `${pctMarginBar.toFixed(1)}% Margen`;
+
+      generarDictamen();
+    }
+
+    function generarDictamen() {
+      const estaciones = document.getElementById('rng-estaciones').value;
+      const litros = parseInt(document.getElementById('rng-litros').value).toLocaleString('es-MX');
+      const mordida = document.getElementById('res-porcentaje-banco').innerText;
+      const fuga = document.getElementById('res-fuga-mensual').innerText;
+      const ahorroAnual = document.getElementById('res-ahorro-anual').innerText;
+
+      const texto = `\"Dictamen Qwen-CPS: Operando ${estaciones} estaciones (${litros} Lts/mes), el banco tradicional cobra su comisión sobre el precio total de $${pvpActual.toFixed(2)} (incluyendo $${IEPS_OFICIAL.toFixed(2)} de IEPS DOF), extrayendo el ${mordida} de tu ganancia neta (${fuga} MXN/mes). Con la fecha límite del SAT del 24 de abril para el nuevo CFDI de Hidrocarburos y la expiración del acuerdo de cuota cero, PayMind recupera ${ahorroAnual} MXN al año e integra SmartPOS App2App directo en dispensario sin riesgo de multas.\"`;
+      
+      document.getElementById('txt-dictamen').innerText = texto;
+    }
+
+    function copiarPitch() {
+      const dictamen = document.getElementById('txt-dictamen').innerText;
+      navigator.clipboard.writeText(dictamen).then(() => {
+        alert('¡Pitch Quirúrgico copiado al portapapeles!');
+      });
+    }
+
+    // Inicializar al cargar
+    actualizarRegion();
+  </script>
+</body>
+</html>
