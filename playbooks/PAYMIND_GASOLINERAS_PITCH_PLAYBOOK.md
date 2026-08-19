@@ -19,18 +19,11 @@
 
 ---
 
-## 2. 🚨 Urgencia Regulatoria: Nuevo CFDI Hidrocarburos SAT (24 de Abril)
-
-> [!IMPORTANT]
-> **A partir del 24 de abril**, el SAT, SENER y ATDT exigen el nuevo **Complemento Concepto para Facturación de Hidrocarburos y Petrolíferos**.
-
-- **Riesgo:** Bloqueo inmediato de timbrado CFDI a gasolineras sin permisos vigentes ante la **Comisión Nacional de Energía (CNE)**.
-- **Impacto:** Pérdida de flotillas y empresas B2B que exigen factura deducible en el momento.
-- **Solución PayMind:** SmartPOS certificada con timbrado y validación CNE en tiempo real.
-
----
-
-## 3. 📊 Anatomía Financiera del Litro de Gasolina en México
+### 2. Marco Regulatorio Oficial (DOF / SAT / ONEXPO Nacional)
+- **Acuerdo DOF 124/2026 (14/08/2026):** Cuota oficial de IEPS de **$5.5979 MXN/L** en Magna (con estímulo del 16.45%) y **$5.6579 MXN/L** en Premium (0% estímulo).
+- **Validación Gremial ONEXPO Nacional A.C.:** Como reporta la propia *Organización Nacional de Expendedores de Petróleo (ONEXPO)* en sus boletines de análisis sectorial: *"La contención fiscal y el 40% de carga impositiva sofocan la rentabilidad del sector gasolinero minorista"*.
+- **Mandato SAT / SENER / ATDT (Fecha límite: 24 de Abril):** Entrada en vigor obligatoria del nuevo **Complemento Concepto para Facturación de Hidrocarburos y Petrolíferos**. La facturación estará condicionada a la validación de permisos ante la Comisión Nacional de Energía (CNE). Las estaciones que no integren la adquirencia SmartPOS al control volumétrico sufrirán bloqueos inmediatos de CFDI.
+- **Acuerdo DOF de Cuota de Intercambio (Temporal de 6 meses):** Hacienda eliminó temporalmente la cuota de intercambio bancaria (costando $1,600 MDP a los bancos). En el mes 7, los bancos regresan a cobrar comisiones plenas de hasta 1.91% en crédito.
 
 - **Precio al Público (PVP):** `~$24.00 MXN / litro`
 - **Carga Fiscal (IEPS + IVA):** `~$8.91 MXN` (**~40% del precio total**, superando por el doble a EE.UU. [$1.15 USD/L]).
