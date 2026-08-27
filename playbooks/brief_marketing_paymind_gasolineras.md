@@ -38,25 +38,30 @@ Estos 4 escenarios son situaciones cotidianas que ocurren en las estaciones de s
 
 ---
 
-## 3. 🎯 Matriz CPS por Rol (Diseñado para la "3ª Transferencia")
+## 3. 🎯 Matriz CPS por Estructura Real de la Empresa (Sin Gobierno Corporativo Pesado)
 
-El mensaje debe ser claro y directo para que, cuando el Gerente de Operaciones o el Administrador lo escuche, pueda explicárselo al Director General o al Contador sin que se pierda la idea principal:
+En la mayoría de los grupos regionales y cadenas medianas (2 a 15 estaciones), no existe una estructura corporativa compleja ni comité directivo. La decisión recae en 3 figuras clave de la operación diaria:
 
 ```
-DEMO / VENDEDOR ──► CHAMPION / GERENTE OPERATIVO ──► DECISOR / FINANZAS
-"Terminal inalámbrica  "La bomba envía el monto      "Sistema ligero certificado que
-con conexión directa   exacto a la terminal sin      no exige cambiar de banco ni parar
-a la bomba."           que el despachador teclee."   la operación de las estaciones."
+VENDEDOR / PITCH ──► ENCARGADO / ADMINISTRADOR ──► EL DUEÑO / EL PATRÓN
+"Terminal inalámbrica  "Evita errores de dedo ante   "Le da agilidad a las bombas
+conectada directo a   el SAT y deposita vales y     sin obligarte a cambiar de
+la bomba."             tarjetas al día siguiente."   sistema ni de banco."
 ```
 
-### Mensajes Clave por Rol:
+### Mensajes Clave por Rol Real:
 
-* **Dueño / Director General (Visión & Posicionamiento):**
-  * *Ángulo:* "Otras cadenas ya están agilizando el cobro al pie de la bomba. Puedes hacer lo mismo en tus estaciones sin necesidad de cambiar tu sistema de control actual."
-* **Gerente de Operaciones (Operación Diaria & Cero Trabas):**
-  * *Ángulo:* "El dispensario le manda el cobro exacto a la terminal inalámbrica. El despachador ya no teclea montos a mano, eliminas errores de dedo ante el SAT y cobras tarjetas y vales en el mismo equipo."
-* **Administrador / Contador (Certidumbre Financiera):**
-  * *Ángulo:* "Sistema ligero y certificado con depósito T+1 (al día siguiente) en tarjetas y vales para mantener liquidez en la compra de gasolina."
+1. **El Dueño / El Patrón (Quien toma la decisión final y pone el dinero):**
+   * *Lo que le importa:* Ver que sus estaciones se vean modernas frente a competidores, que no le roben en los turnos, cuidarle el margen a los litros de gasolina y no arriesgar la operación con cambios complicados.
+   * *El Mensaje:* *"Agiliza el cobro en tus bombas sin cambiar de banco ni tirar el sistema que ya compraste. Mantienes tu operación actual y cobras tarjetas y vales al instante."*
+
+2. **El Contador / Administrador General (La mano derecha financiera):**
+   * *Lo que le importa:* Conciliar facturación Anexo 30 del SAT sin errores de dedo, evitar sanciones y tener dinero rápido (T+1) de vales (Edenred/Sodexo/SiVale) y tarjetas para comprar pipas.
+   * *El Mensaje:* *"El monto de la bomba pasa directo a la terminal sin captura manual. Evitas discrepancias con el SAT y recibes depósitos de vales y tarjetas al día siguiente (T+1)."*
+
+3. **El Encargado de la Gasolinera (Quien está en el terreno y ve los turnos):**
+   * *Lo que le importa:* Que los despachadores no anden pidiéndose terminales prestadas, que el cambio de turno a las 2:00 PM no atranque la gasolinera y que no se le vayan los clientes desesperados.
+   * *El Mensaje:* *"Terminal inalámbrica asignada para cobrar directo en la bomba. Cero filas en el cambio de turno y cobro en 10 segundos para que no se te vayan los autos."*
 
 ---
 
