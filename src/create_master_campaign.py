@@ -98,61 +98,60 @@ df_g['Compania'] = df_g['Compania'].astype(str).str.strip()
 df_g['Nombre'] = df_g['Nombre'].astype(str).str.strip()
 
 df_g['Asunto_Paso1_Apertura'] = df_g['Compania'].apply(
-    lambda x: f"{x} — Nuevo CFDI de Hidrocarburos SAT (24 de abril) y el 40% de impuestos"
+    lambda x: f"{x} — Agilizar cobro en bombas sin cambiar tu sistema actual"
 )
 df_g['Cuerpo_Paso1_Apertura'] = df_g.apply(
     lambda r: (
         f"Hola {r['Nombre']},\n\n"
-        f"Con la fecha límite del 24 de abril para el nuevo Complemento CFDI de Hidrocarburos y Petrolíferos del SAT/SENER, "
-        f"las estaciones que no validen permisos ante la CNE quedarán bloqueadas para facturar. A eso se suma que el 40% de carga fiscal (IEPS + IVA) "
-        f"deja un margen bruto de apenas $0.80 a $1.40 por litro, mientras los bancos tradicionales cobran comisiones sobre los $24 pesos brutos.\n\n"
-        f"En PayMind ayudamos a grupos gasolineros como {r['Compania']} a blindar su operación con:\n"
-        f"1. Timbrado y Validación de Nuevo CFDI: Conexión transparente para no frenar la facturación de flotillas y empresas.\n"
-        f"2. Integración App2App en Bomba: El dispensario pasa el monto exacto a la SmartPOS en tiempo real (Cero discrepancias Anexo 30 SAT).\n"
-        f"3. Una sola terminal para bancarias y todos los vales (Edenred, Sodexo, SiVale) con liquidación T+1 para fondeo de pipas.\n\n"
-        f"¿Tienes 10 minutos este jueves para revisar cómo blindar la facturación del 24 de abril y rescatar hasta 40% de margen retenido por comisiones bancarias?\n\n"
+        f"Platicando con dueños de estaciones y cadenas regionales, un dolor recurrente en horas de alto tráfico es ver conductores que se desesperan por la demora en el cobro y se van a cargar a la gasolinera de enfrente.\n\n"
+        f"En PayMind ayudamos a grupos gasolineros como {r['Compania']} a acelerar el cobro en bomba sin pedirte que cambies tu sistema de control ni tu proveedor actual:\n"
+        f"1. Terminales inalámbricas por bomba: El despachador cobra en segundos sin alejarse del auto.\n"
+        f"2. Cero captura manual: La bomba le manda el monto exacto a la terminal, evitando errores de dedo ante el SAT.\n"
+        f"3. Unificación de vales y tarjetas: Recibes tarjetas bancarias y vales (Edenred, Sodexo, SiVale) en el mismo equipo con dinero disponible al día siguiente (T+1).\n\n"
+        f"Nos adaptamos a tu infraestructura actual (o si lo prefieres, te conectamos con nuestro socio de telemetría).\n\n"
+        f"¿Tendrás 10 minutos este jueves para revisar cómo agilizar el cobro en tus estaciones sin arriesgar la operación?\n\n"
         f"Saludos,\nAntonio Gutiérrez\nConsultor de Crecimiento & Pagos | PayMind"
     ), axis=1
 )
 
 df_g['Asunto_Paso2_FollowUp_D4'] = df_g['Compania'].apply(
-    lambda x: f"Re: {x} — Multas de Anexo 30 por captura manual en dispensario"
+    lambda x: f"Re: {x} — Despachadores pidiéndose terminales prestadas entre bombas"
 )
 df_g['Cuerpo_Paso2_FollowUp_D4'] = df_g.apply(
     lambda r: (
         f"Hola {r['Nombre']},\n\n"
-        f"Te escribo en seguimiento: cuando los despachadores teclean a mano los montos en terminales bancarias independientes, "
-        f"las discrepancias entre el ticket de la TPV y el control volumétrico son el motivo #1 de sanciones del SAT (Anexo 30).\n\n"
-        f"Nuestras terminales SmartPOS se integran directo a los dispensarios para eliminar la doble captura.\n\n"
-        f"¿Te interesaría ver una demo técnica de 10 minutos?\n\n"
+        f"Te escribo brevemente en seguimiento.\n\n"
+        f"Cuando hay 6 u 8 bombas y solo 2 o 3 terminales bancarias, los despachadores pierden tiempo caminando a pedírsela prestada al compañero. Eso genera filas y hace que el cobro tome minutos en lugar de segundos.\n\n"
+        f"Con nuestras terminales inalámbricas ligeras, cada despachador cobra al instante sin caminar ni teclear montos a mano (lo que elimina discrepancias de facturación).\n\n"
+        f"¿Te interesaría ver una demo técnica de 10 minutos esta semana?\n\n"
         f"Saludos,\nAntonio Gutiérrez"
     ), axis=1
 )
 
 df_g['Asunto_Paso3_CasoExito_D8'] = df_g['Compania'].apply(
-    lambda x: f"Caso de Éxito: Liquidación T+1 de vales y 1 sola terminal en bomba"
+    lambda x: f"Cierres de turno a las 2:00 PM sin frenar la atención en {x}"
 )
 df_g['Cuerpo_Paso3_CasoExito_D8'] = df_g.apply(
     lambda r: (
         f"Hola {r['Nombre']},\n\n"
-        f"Te comparto un resultado concreto: grupos gasolineros medianos que unificaron vales (Edenred, Sodexo, SiVale) con PayMind pasaron de "
-        f"liquidaciones lentas de 4 días a cobro T+1 diario, reduciendo tiempos de despacho en pista un 25%.\n\n"
+        f"Un problema común en estaciones de servicio es el cambio de turno de las 2:00 PM: justo en hora pico de tráfico, la atención se alenta porque los despachadores se detienen a contar vouchers y hacer cortes manuales.\n\n"
+        f"Grupos gasolineros que unificaron sus cobros con PayMind hacen cierres digitales en 2 minutos desde la terminal, además de recibir el dinero de vales y tarjetas al día siguiente (T+1) para comprar pipas.\n\n"
         f"¿Platicamos 10 minutos este viernes?\n\n"
         f"Saludos,\nAntonio Gutiérrez"
     ), axis=1
 )
 
 df_g['Asunto_Paso4_Breakup_D12'] = df_g['Compania'].apply(
-    lambda x: f"{x} — Dejando esto en tu mesa para cuando revisen contratos bancarios"
+    lambda x: f"{x} — Dejando esto listo para cuando revisen terminales"
 )
 df_g['Cuerpo_Paso4_Breakup_D12'] = df_g.apply(
     lambda r: (
         f"Hola {r['Nombre']},\n\n"
-        f"Entiendo que por ahora tienen contrato vigente con su adquirente bancario.\n\n"
-        f"Te dejo la puerta abierta: cuando revisen presupuesto o busquen reducir la comisión que se come el margen de sus litros de gasolina, "
-        f"estaré encantado de apoyarlos.\n\n"
-        f"Mucho éxito en la operación.\n\n"
-        f"Antonio Gutiérrez"
+        f"Entiendo que por ahora tienen resuelta la parte de cobro con su banco adquirente actual.\n\n"
+        f"Te dejo nuestro enlace por si más adelante buscan reducir comisiones bancarias o conectar terminales inalámbricas directo a sus bombas sin cambiar de sistema:\n"
+        f"https://paymind-growth-engine.pages.dev/\n\n"
+        f"Mucho éxito en la operación de {r['Compania']}.\n\n"
+        f"Saludos,\nAntonio Gutiérrez"
     ), axis=1
 )
 
