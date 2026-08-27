@@ -1,0 +1,49 @@
+# 🗺️ Directorio Oficial de Asociaciones Estatales de ONEXPO Nacional A.C.
+
+> **Uso Estratégico:** Directorio de las 42 asociaciones gremiales de expendedores de gasolina en los 32 estados de México. Ideal para prospección institucional, alianzas de distribución y convocatorias regionales.
+
+| Estado | Siglas | Nombre de la Asociación | Dirección | Teléfono / Contacto |
+| :--- | :--- | :--- | :--- | :--- |
+| **Aguascalientes** | `Gasucen` | Gasolineras Unidas del Centro A.C. | Av. Independencia #1331 int. 15 Col. El Plateado | (449) 153-01-33 |
+| **Baja California** | `AGM` | Asociación de Gasolineros de Mexicali A.C. | Av. Torreón y Gob. Esteban Cantú #399 Ex Ejido Coahuila C.P. 21360 Mexicali, BC | (686) 554-1172 |
+| **Baja California** | `AGE` | Asociación de Gasolineros de Ensenada A.C. | Blvd. Pinta #397 Fracc. Valle Dorado C.P. 22890 Ensenada, BC | (646) 173-5963 |
+| **Baja California** | `GEBC` | Grupo Energético de Baja California, A.C. | David Alfaro Siqueiros #2589 Zona Urbana Río Tijuana C.P. 22110 Tijuana, BC | (664) 386-0543 |
+| **Baja California Sur** | `ONEXPO BCS` | ONEXPO Sudcalifornia A.C. | Calzada Agustín Olachea #3215 Col. Pueblo Nuevo La Paz, BCS | (612) 128-9400 |
+| **Campeche** | `UGEC` | Unión de Gasolineros de Campeche A.C. | Av. Ruiz Cortines #112 Torre-B 3er.Piso Col. San Román C.P. 24040 Campeche, Cam. | (981) 127-3249 ext.149 |
+| **Chiapas** | `UDGCHAC` | Union de Distribuidores de Gasolina de Chiapas A.C. | 2o. Ote Sur #53 Zona Centro C.P. 29140 Ocozucuautla de Espinosa, Chiapas | (961) 639-2979 / (961) 615-3095 |
+| **Chihuahua** | `OEPDCH` | Organización de Expendedores de Petróleo de Chihuahua A.C. | Av. Prolongación Teófilo Borunda No. 11800 Col. Ejido Labor de Terrazas C.P. 31415 Chihuahua, Chih. | (614) 441-6417 |
+| **Chihuahua** | `ONEXPO Juárez` | ONEXPO de Ciudad Juárez A.C. | Carr. Panamericana y Casas Grandes km. 13.5 Col. Lomas del Puente Alto C.P. 32695 Cd. Juárez, Chih. | (656) 633-1107 |
+| **Coahuila** | `ECOAGAS` | Empresarios Coahuilenses Gasolineros, A.C. | Abasolo Norte #2014 Zona Centro C.P. 25000 Saltillo, Coahuila | ecoagas@gmail.com |
+| **Coahuila** | `ONEXPO Coahuila` | ONEXPO de Coahuila, A.C. | Diego Montemayor #178 Sur Col. Centro C.P. 66230 San Pedro Garza García, N.L. | (818) 338-3414 |
+| **Coahuila** | `UEPCLCYD` | Unión de Expendedores de Petróleos de la Comarca Lagunera, Coahuila y Durango A.C. | Diag. Reforma #3509 Oriente Col. Nuevo Torreón C.P. 27060 Torreón, Coahuila | (871) 717-0023 |
+| **Colima** | `UGEC Colima` | Unión de Gasolineros del Estado de Colima A.C. | Miguel Cervantes Saavedra 365-6 Hacienda Real, Colima C.P. 28018 | (312) 330-5440 |
+| **CDMX** | `CEGA` | Consejo Empresarial Gasolinero del Valle de México A.C. | Río Tiber #91 Despacho 101 Col. Cuauhtémoc C.P. 06500 México, DF | (55) 5525-2178 / (55) 5525-2322 |
+| **Durango** | `ONEXPO Durango` | ONEXPO Durango A.C. | Carretera Durango - Zacatecas #1300 Col. Agrícola C.P. 34240 Durango, Dgo. | (618) 836-0919 |
+| **Estado de México** | `RGC` | Red de Gasolineros del Centro A.C. | Av. Guerrero Ote. #32 Col. Centro C.P. 54240 Jilotepec, Edo. Méx | (761) 734-1400 ext 214 |
+| **Estado de México** | `ADIGAL` | Asociación de Distribuidores de Gasolina y Lubricantes A.C. | Heriberto Enríquez #904 Plaza Fermín Col. Aztecas C.P. 50180 Toluca, Edo. Méx | (722) 270-8939 / (722) 616-5582 |
+| **Guanajuato** | `UNAGAS` | Unión Nacional de Gasolineros A.C. | Blvd. Adolfo López Mateos Pte. #1020-212 Centro Comercial Metro Plaza C.P. 38040 Celaya, Gto. | (461) 615-2443 |
+| **Guanajuato** | `AGAZI` | Asociación de Gasolineros Zona Irapuato A.C. | Av. De los Insurgentes #2560 Col. Los Fresnos C.P. 36555 Irapuato, Gto. | (462) 623-5331 |
+| **Guanajuato** | `ONEXPO León` | ONEXPO León A.C. | Blvd. Miguel de Cervantes Saavedra #701 Col. Vista Hermosa Sur C.P. 37330 León, Gto. | (477) 777-0898 |
+| **Guerrero** | `AGGAC` | Asociación de Gasolineras de Guerrero A.C. | Andrés de Urdaneta y Pedro Áviles s/n Fracc. Hornos C.P. 39355 Acapulco, Gro. | (744) 485-2203 |
+| **Hidalgo** | `GAH` | Gasolineros Asociados de Hidalgo A.C. | Melchor Ocampo #103 Col. Centro C.P. 42800 Tula de Allende, Hgo. | (773) 732-4467 |
+| **Hidalgo** | `EGH` | Empresarios Gasolineros de Hidalgo A.C. | Lote #2 Parque Industrial C.P. 43998 Sahagún, Hgo. | (791) 913-5990 / (771) 718-6086 |
+| **Jalisco** | `ONEXPO Jalisco` | ONEXPO Jalisco A.C. | Av. Patria #424 Col. Jardines de la Patria C.P. 45110 Zapopan, Jal. | (333) 111-9970 |
+| **Michoacán** | `UGAMI` | Unión de Gasolineros de Michoacán A.C. | 5 de febrero #23-313 Col. Centro C.P. 60000 Uruapan, Mich. | (452) 527-0089 |
+| **Morelos** | `UGEM` | Unión de Gasolineros del Estado de Morelos A.C. | Carr. Cuernavaca - Cuautla Km. 27.3 Col. Jovito Serrano Yautepec, Mor. C.P. 62730 | (735) 394-2174 |
+| **Nayarit** | `OEPN` | Organización de Expendedores de Petrolíferos de Nayarit A.C. | 12 de Octubre Sur #193 Col. José María Menchaca C.P. 63130 Tepic, Nay. | (311) 214-2029 / (311) 213-7166 |
+| **Nuevo León** | `ONEXPO NL` | Organización Neolonesa de Expendedores de Petróleo A.C. | José Calderón #550 Col. Chepevera C.P. 64030 Monterrey, NL. | (81) 8347-5592 / (81) 8348-5532 |
+| **Oaxaca** | `EGEO` | Empresarios Gasolineros del Estado de Oaxaca A.C. | Jazmines #936 Col. Reforma C.P. 68050 Oaxaca, Oax. | (951) 503-2195 |
+| **Puebla** | `OPAC` | ONEXPO Puebla A.C. | Calz. Zavaleta #703 piso 2 despacho 202 'E' Campestre El Paraíso C.P. 72150 Puebla, Pue. | (222) 574-9021 |
+| **Querétaro** | `AEGA` | Asociación de Empresarios Gasolineros de Querétaro A.C. | Km. 32 Carr. a San Miguel de Allende - Qro. Apdo. Postal 687 C.P. 37700 San Miguel de Allende, Gto. | (415) 152-5511 |
+| **Querétaro** | `UESQRO` | Unión de Estaciones de Servicio de Querétaro, A.C. | Av. Armando Birlain Shaffler #2001 Torre 1, piso 7-B Col. Centro Sur C.P. 76090 Querétaro, Qro. | (442) 229-3304 |
+| **Quintana Roo** | `AES Q.Roo` | Asociación de Estaciones de Servicio de Quintana Roo A.C. | Calle 18 #201 B entre 23 y 25 Col. García Ginerés C.P. 97070 Mérida, Yuc. | (999) 925-4905 |
+| **San Luis Potosí** | `ONEXPO SLP` | ONEXPO SLP A.C. | Edif. Cámara de Comercio de SLP Prolong. Av. Coronel Romero #2100 Col. Tierra Blanca C.P. 78364 San Luis Potosí, SLP | (444) 839-1457 / (444) 820-2475 |
+| **San Luis Potosí** | `UGZHMP` | Unión de Gasolineros de la Zona Huasteca y Media Potosina A.C. | Pedro Antonio de los Santos #443-7 Zona Centro C.P. 79040 Cd. Valles, SLP | (481) 381-0749 |
+| **Sinaloa** | `ONEXPO Sinaloa` | ONEXPO Sinaloa A.C. | Blvd. Pedro María Anaya #1787-7 Col. Chapultepec C.P. 80040 Culiacán, Sinaloa | (667) 716-6725 |
+| **Sonora** | `ONEXPO Sonora` | ONEXPO Sonora A.C. | Veracruz #239 entre Ramón Corral y Juan G. Cabral Col. Country Club C.P. 83150 Hermosillo, Son. | (662) 210-3575 |
+| **Tabasco** | `UNEXPETAB` | Unión de Expendedores de Pemex del Estado de Tabasco, Nte. de Chiapas y Poniente de Campeche A.C. | Prol. Paseo de Usumacinta s/n Col. Guayabal C.P. 86090 Villahermosa, Tab. | (993) 352-2302 |
+| **Tamaulipas** | `OTEXPO` | OTEXPO A.C. | Alhelies #20 Col. Jardín C.P. 87330 Matamoros, Tam. | (868) 813-0505 |
+| **Veracruz** | `OGAVE` | Organización de Gasolineros de Veracruz A.C. | Blvd. Adolfo Ruíz Cortines esq. Ciencias Exactas s/n Fracc. SUTSEM C.P. 94299 Boca del Río, Ver. | (229) 921-7500 |
+| **Yucatán** | `UGY` | Unión de Gasolineros del Estado de Yucatán A.C. | Calle 27 #86 entre 18 y 20 Col. Chichén Itzá C.P. 97170 Mérida, Yuc. | (999) 926-8016 |
+| **Yucatán** | `GUPYAC` | Gasolineros Unidos del Península A.C. | Calle 20 #235 entre calle 7 y 15 Edif. Luxus Altabrisa piso 6 C.P. 97130 Mérida, Yuc. | (999) 270-4735 |
+| **Zacatecas** | `GAZAC` | Asociación de Gasolineros de Zacatecas A.C. | Av. Hacienda de Bernardez #106 A Fracc. Conde de Bernardez C.P. 98617 Guadalupe, Zac. | (492) 921-2345 |
