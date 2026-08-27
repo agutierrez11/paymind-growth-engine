@@ -31,7 +31,7 @@ En lugar de quemar **`$120,000 MXN`** y esperar 4 meses para que una agencia apr
 
 ---
 
-## 3. 🎯 Los 3 Activos Listos para Desplegar
+## 3. 🎯 Los 4 Activos Listos para Desplegar
 
 ### A. Secuencia Socrática de Outbound Directo (4 Pasos)
 * **Paso 1 (Día 1):** Agilizar cobro en bomba sin pedir al grupo que cambie su sistema actual de control ni su banco adquirente.
@@ -45,6 +45,10 @@ En lugar de quemar **`$120,000 MXN`** y esperar 4 meses para que una agencia apr
 
 ### C. Calculadora Financiera Web Interactiva
 * Herramienta visual en vivo donde el dueño o contador ingresa su número de estaciones y volumen mensual, desglosando la carga del IEPS/IVA y el ahorro neto en comisiones.
+
+### D. Validación de Mercado & Certificaciones de Hardware
+* **Caso de Éxito Validador:** Referencia directa de procesar transacciones para **Grupo ORSAN (Mobil)**, eliminando dudas de escala ante grupos medianos.
+* **Certificación ATEX Antichispas + PCI 6.x:** Terminales **Nexgo SmartPOS** totalmente preparadas para operar de forma segura en la isla de carga.
 
 ---
 
