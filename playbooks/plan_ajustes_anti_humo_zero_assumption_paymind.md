@@ -20,9 +20,7 @@
 
 ## 🛠️ 2. Lista de Ajustes Concretos en los Materiales de PayMind
 
-### 📄 1. Ajuste en el Resumen Ejecutivo (One-Pager GTM vs. Agencia)
 * **Lo que se elimina:** Proyecciones de ROI del 82%, cifras de $324,000-$486,000 MXN anuales asumidas y 90.8% de probabilidad matemática.
-* **Lo que se incluye:** Comparativa de gasto operativo puro (**Agencia $120,000 MXN en 4 meses vs. Motor In-House $4,000 MXN**) + **Justificación de la Laptop de Trabajo ($10k-$30k)** + **Meta de Extracción de Datos del Caso ORSAN**.
 
 ### ✉️ 2. Ajuste en las Secuencias de Correo (Snov.io)
 * **Lo que se elimina:** "Reducción de errores de tecleo al 4.2%", "Aumento de atención en 30%" y frases cliché como "En empresas como la tuya".
@@ -51,4 +49,4 @@
 | **Cuña de Entrada** | Kioskos + Retail Media + Lealtad + Anticipos | Cumplimiento Volumétrico + Cobro en Isla T+1 |
 | **Prueba de Valor** | Benchmarks de China (Sinopec) y Brasil (Vibra) | Datos auditados del caso vivo Grupo ORSAN (Mobil) |
 | **Metas de Ventas** | 500 estaciones en 12 meses | 3-5 estaciones en piloto ➔ 25 en Mes 9 ➔ 75 en Mes 12 |
-| **Modelo Financiero** | ROI hipotético del 82% | TCO real, ahorro directo en agencia y margen adquirente |
+

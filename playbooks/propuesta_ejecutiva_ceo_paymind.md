@@ -1,14 +1,10 @@
 # 💼 Caso de Negocio & Propuesta Ejecutiva para la Dirección de PayMind
 
 > **Preparado por:** Antonio Gutiérrez | Consultor de Crecimiento & Pagos  
-> **Asunto:** Caso de Comparativa de Eficiencia Operativa: Agencia Externa ($30k/mes) vs. Motor de Prospección In-House (*PayMind Growth Engine*)  
+
 > **Fecha:** 27 de Agosto, 2026
 
 ---
-
-## 1. 🔍 El Teardown de la Agencia Externa (Metrica MD / Consultoría Tradicional)
-
-En el análisis de propuestas de agencias externas para el desarrollo de la estrategia comercial y de contenidos, la agencia evaluada presentó la siguiente estructura de costos y tiempos:
 
 * **Tarifa Mensual:** **`$30,000 MXN / mes`** (Bajo el esquema "Dirección por Área").
 * **Tiempo de Espera para Resultados ("Empezar a ver algo"):** **`4 Meses`** *(Argumentando que deben "construir todo desde cero")*.
@@ -19,9 +15,6 @@ En el análisis de propuestas de agencias externas para el desarrollo de la estr
 
 ## 2. ⚡ La Alternativa Ejecutable: PayMind Growth Engine (En Vivo en 24 Horas)
 
-En lugar de quemar **`$120,000 MXN`** y esperar 4 meses para que una agencia aprenda sobre la marcha cómo funciona una gasolinera, el sistema in-house ya cuenta con la infraestructura 100% desarrollada y lista para desplegar hoy mismo:
-
-| Dimensión | Agencia Externa ($30,000 MXN/mes) | PayMind Growth Engine (In-House) |
 | :--- | :--- | :--- |
 | **Tiempo de Inicio** | 4 Meses de preparación ("Construir desde 0") | **Inmediato (0 días)** |
 | **Costo Operativo** | $120,000 MXN en los primeros 4 meses | **~$1,000 MXN/mes** ($50 USD Snov.io) |
@@ -54,7 +47,6 @@ En lugar de quemar **`$120,000 MXN`** y esperar 4 meses para que una agencia apr
 
 ## 4. 📈 Retorno Financiero Estimado para el CEO
 
-* **Ahorro Directo de Capital:** **`$116,000 MXN`** rescatados al no contratar la tarifa de agencia en los primeros 4 meses.
 * **Proyección de Conversión Probabilística sobre 433 Gasolineras:**
   * **Probabilidad de Cierre $\ge 1$ Grupo Gasolinero:** **`90.8%`**
   * **Resultado Esperado (Caso Base):** **2 a 3 Grupos Cerrados** (6 a 9 Estaciones de Servicio incorporadas).

@@ -1,13 +1,10 @@
 # 🗺️ Roadmap Comercial In-House & Justificación Económica PayMind
 
 > **Preparado por:** Antonio Gutiérrez | Consultor de Crecimiento & Pagos  
-> **Objetivo:** Guía paso a paso para la atracción de leads sin necesidad de agencia externa ($30k/mes), respaldada con fuentes verificables del sector gasolinero en México y estrategia de alianzas con software volumétrico.
 
 ---
 
 ## 1. 🚀 Roadmap Comercial In-House (30 Días)
-
-Este plan elimina la curva de 4 meses que pide la agencia y genera **resultados desde la Semana 1**:
 
 ```
 SEMANA 1 (Días 1-7)        SEMANA 2 (Días 8-15)       SEMANAS 3 Y 4 (Días 16-30)
@@ -63,26 +60,19 @@ SOFTWARE VOLUMÉTRICO (ControlGAS)  ──►  PAYMIND SMARTPOS  ──►  BANC
 
 ---
 
-## 💻 4. El Caso de Negocio: "Laptop de Trabajo para Antonio vs Regalar $120K a la Agencia"
-
 ### Comparativa de Inversión a 4 Meses:
 
-#### 🔴 Opción A: Contratar a la Agencia Externa (Metrica MD)
 * **Costo mensual:** $30,000 MXN $\times$ 4 meses = **`$120,000 MXN`**.
 * **Entregables:** Diapositivas de estrategia, 4 meses de espera ("construir desde cero"), cero leads garantizados y cero conocimiento de pagos.
-* **Activo generado:** Ninguno (el dinero se fue en honorarios de la agencia).
 
 #### 🟢 Opción B: Ejecución In-House (PayMind Growth Engine + Equipo Fijo)
-* **Equipamiento de Trabajo (Laptop Workstation de Alta Gama para Antonio):** `~$35,000 MXN` *(Activo fijo que se queda propiedad de PayMind para siempre)*.
+
 * **Plataforma Snov.io (Outbound 433 Gasolineras):** `$1,000 MXN / mes` $\times$ 4 meses = `$4,000 MXN`.
 * **Presupuesto de Pauta Dirigida (Meta / LinkedIn):** `$10,000 MXN / mes` $\times$ 3 meses = `$30,000 MXN`.
 * **Costo Total Opción B:** **`$69,000 MXN`**.
-* 💰 **Ahorro Neto Directo para PayMind:** **`$51,000 MXN`** en efectivo rescatados + **Una Laptop de Alta Gama** + **Demos y ventas cerradas desde la Semana 1**.
 
 ---
 
 ### 💡 Conclusión Ejecutiva
-
-Contratar una agencia genérica por $30,000 MXN mensuales para que tarde 4 meses en entender cómo funciona una gasolinera es un desperdicio de capital. Con el **PayMind Growth Engine** ya tenemos los correos, los Lead Magnets y la Calculadora listos. 
 
 Invertir en el equipamiento in-house y en pauta directa nos da **control total, velocidad 10 veces mayor y un ahorro de más de $50,000 MXN**.
