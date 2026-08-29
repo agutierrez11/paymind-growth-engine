@@ -74,7 +74,7 @@ antonio.gutierrez@paymind.mx
 * **Hipótesis:** Una pregunta simple de 2 líneas sin rodeos genera mayor tasa de respuesta.
 
 ```text
-Asunto: Pregunta rápida sobre cobro con tarjeta en dispensario
+Asunto: Consulta sobre cobro inalámbrico en dispensario
 
 Hola,
 

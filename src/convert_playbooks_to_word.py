@@ -10,7 +10,6 @@ from docx.enum.table import WD_TABLE_ALIGNMENT
 from docx.oxml import parse_xml, OxmlElement
 from docx.oxml.ns import nsdecls, qn
 
-# Configurar carpetas destino en Escritorio
 desktop_dirs = [
     r"C:\Users\Antonio\Desktop\Paymind Strategy",
     r"C:\Users\Antonio\OneDrive\Desktop\Paymind Strategy",
@@ -22,6 +21,7 @@ for d in desktop_dirs:
 
 base_dir = r"C:\Users\Antonio\.gemini\antigravity-ide\scratch\paymind-growth-engine"
 playbooks_dir = os.path.join(base_dir, "playbooks")
+data_dir = os.path.join(base_dir, "data")
 
 def style_heading(p, text, level):
     p.paragraph_format.space_before = Pt(12)
@@ -32,10 +32,10 @@ def style_heading(p, text, level):
     run.bold = True
     if level == 1:
         run.font.size = Pt(20)
-        run.font.color.rgb = RGBColor(15, 23, 42) # Slate Dark
+        run.font.color.rgb = RGBColor(15, 23, 42)
     elif level == 2:
         run.font.size = Pt(16)
-        run.font.color.rgb = RGBColor(37, 99, 235) # Accent Blue
+        run.font.color.rgb = RGBColor(37, 99, 235)
     elif level == 3:
         run.font.size = Pt(13)
         run.font.color.rgb = RGBColor(30, 41, 59)
@@ -43,15 +43,18 @@ def style_heading(p, text, level):
 def parse_markdown_to_docx(md_path, docx_path):
     doc = Document()
     
-    # Margenes de pagina (0.8 pulgadas)
     for section in doc.sections:
         section.top_margin = Inches(0.8)
         section.bottom_margin = Inches(0.8)
         section.left_margin = Inches(0.8)
         section.right_margin = Inches(0.8)
 
-    with open(md_path, 'r', encoding='utf-8') as f:
-        lines = f.readlines()
+    try:
+        with open(md_path, 'r', encoding='utf-8') as f:
+            lines = f.readlines()
+    except:
+        with open(md_path, 'r', encoding='latin1') as f:
+            lines = f.readlines()
 
     in_table = False
     table_lines = []
@@ -60,7 +63,6 @@ def parse_markdown_to_docx(md_path, docx_path):
         raw_line = line.rstrip('\n\r')
         stripped = raw_line.strip()
 
-        # Manejo de Tablas
         if '|' in stripped and ('---' in stripped or stripped.startswith('|')):
             in_table = True
             table_lines.append(stripped)
@@ -76,7 +78,6 @@ def parse_markdown_to_docx(md_path, docx_path):
         if not stripped:
             continue
 
-        # Encabezados
         if stripped.startswith('# '):
             p = doc.add_paragraph()
             style_heading(p, stripped[2:].strip(), 1)
@@ -177,61 +178,35 @@ def process_table(doc, lines):
 
     doc.add_paragraph()
 
-# Convertir todos los Playbooks a Word (.docx)
-file_order = [
-    "ONE_PAGER_PLAN_GTM_VS_AGENCIA.md",
-    "propuesta_ejecutiva_ceo_paymind.md",
-    "roadmap_comercial_y_caso_negocio.md",
-    "segmentacion_clusters_gtm_gasolineras.md",
-    "lead_magnet_1_checkup_anexo30_sat.md",
-    "lead_magnet_2_matriz_optimizacion_bancaria.md",
-    "matriz_alianzas_cps_y_copys_partnerships.md",
-    "estrategia_oceano_azul_softwares_regionales.md",
-    "framework_comunicacion_c_level_y_tercera_transferencia.md",
-    "directorio_expositores_encuentro_empresarial_2026.md",
-    "estrategia_guerrilla_evento_mariano_paymind.md",
-    "modelo_comisiones_y_soberania_comercial_antonio.md",
-    "investigacion_softwares_volumetricos_mexico.md",
-    "brief_marketing_paymind_gasolineras.md",
-    "directorio_onexpo_estatal_mexico.md"
-]
+# Buscar TODOS los archivos MD en playbooks y data
+md_files = sorted(list(set(glob.glob(os.path.join(playbooks_dir, "*.md")) + glob.glob(os.path.join(data_dir, "*.md")))))
+
+print(f"Encontrados {len(md_files)} archivos Markdown para convertir...")
 
 converted_count = 0
-for idx, fname in enumerate(file_order, 1):
-    src_md = os.path.join(playbooks_dir, fname)
-    if os.path.exists(src_md):
-        clean_name = fname.replace('.md', '').replace('_', ' ').title()
-        docx_name = f"{idx:02d}_{clean_name}.docx"
-        
-        for d in desktop_dirs:
+for idx, src_md in enumerate(md_files, 1):
+    fname = os.path.basename(src_md)
+    clean_name = fname.replace('.md', '').replace('_', ' ').replace('-', ' ').title()
+    clean_name = re.sub(r'[^\w\s]', '', clean_name).strip()
+    docx_name = f"{idx:02d}_{clean_name}.docx"
+    
+    for d in desktop_dirs:
+        if os.path.exists(d):
             target_docx = os.path.join(d, docx_name)
             parse_markdown_to_docx(src_md, target_docx)
-            print(f"[OK] Creado Documento Word: {target_docx}")
-        converted_count += 1
+            print(f"[OK] Creado Word ({idx}/{len(md_files)}): {os.path.basename(target_docx)}")
+    converted_count += 1
 
-# Copiar Excels y CSVs a la carpeta del Escritorio
-data_dir = os.path.join(base_dir, "data")
-data_files = [
-    "Campana_PayMind_MultiSegmento_CPS.xlsx",
-    "Campana_PayMind_Gasolineras_400.xlsx",
-    "Snovio_Gasolineras_Segmentada_Clusters.csv",
-    "directorio_asociaciones_onexpo_mexico.csv"
-]
+# Copiar Excels, CSVs y HTMLs a la carpeta del Escritorio
+all_data_files = glob.glob(os.path.join(data_dir, "*")) + glob.glob(os.path.join(playbooks_dir, "*.html"))
 
-for dfname in data_files:
-    src_data = os.path.join(data_dir, dfname)
-    if os.path.exists(src_data):
+for src_file in all_data_files:
+    if os.path.isfile(src_file) and not src_file.endswith('.md'):
+        fname = os.path.basename(src_file)
         for d in desktop_dirs:
-            dst_data = os.path.join(d, dfname)
-            shutil.copy2(src_data, dst_data)
-            print(f"[OK] Copiado Excel/CSV: {dst_data}")
+            if os.path.exists(d):
+                dst_file = os.path.join(d, fname)
+                shutil.copy2(src_file, dst_file)
+                print(f"[OK] Copiado Asset: {fname} a {d}")
 
-# Copiar versión HTML del One-Pager
-src_html = os.path.join(playbooks_dir, "ONE_PAGER_PLAN_GTM_VS_AGENCIA.html")
-if os.path.exists(src_html):
-    for d in desktop_dirs:
-        dst_html = os.path.join(d, "00_ONE_PAGER_EJECUTIVO_IMPRIMIBLE.html")
-        shutil.copy2(src_html, dst_html)
-        print(f"[OK] Copiado HTML Imprimible: {dst_html}")
-
-print(f"\nPROCESO COMPLETADO EXITOSAMENTE: {converted_count} documentos de Word (.docx) creados en 'Paymind Strategy'.")
+print(f"\nPROCESO COMPLETADO EXITOSAMENTE: {converted_count} documentos de Word (.docx) y todos los datos exportados a 'Paymind Strategy'.")

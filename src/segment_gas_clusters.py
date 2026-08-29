@@ -42,42 +42,33 @@ def assign_gtm_strategy(cluster):
 
 def assign_email_pitch_step1(row, cluster):
     nombre = str(row.get('Nombre', 'Director')).strip()
-    comp = str(row.get('Compania', 'su empresa')).strip()
+    comp = str(row.get('Compania', 'su estación')).strip()
+    if nombre.lower() in ['director', 'propietario', 'gerente', 'nan', '']:
+        saludo = "Hola,"
+    else:
+        saludo = f"Hola {nombre},"
     
     if 'Cluster 1' in cluster:
         return (
-            f"Hola {nombre},\n\n"
-            f"Para macro-grupos como {comp}, cambiar de adquirente bancario no es opción por las tasas corporativas acordadas con BBVA, BanBajío o Afirme. "
-            f"El reto real es la pesadilla contable de conciliar miles de depósitos diarios frente a los cortes de caja de las estaciones.\n\n"
-            f"En PayMind actuamos como el middleware técnico (mismo modelo que operamos con Grupo ORSAN):\n"
-            f"1. Ruteo Puro: Mantienes tus contratos bancarios y tasas corporativas preferenciales.\n"
-            f"2. Hardware Certificado: Terminales Nexgo SmartPOS PCI 6.x y especificación ATEX (antichispas) para isla de carga.\n"
-            f"3. Conciliación Automatizada: Inyectamos el corte de caja en tiempo real directo a tu ERP (SAP, Dyngas o ControlGAS).\n\n"
-            f"¿Tendrás 10 minutos este jueves para revisar cómo automatizar la conciliación de {comp} sin cambiar de banco?\n\n"
-            f"Saludos,\nAntonio Gutiérrez | PayMind"
+            f"{saludo}\n\n"
+            f"Voy conociendo cómo operan la cobranza corporativa distintos grupos gasolineros, y cada uno tiene retos distintos.\n\n"
+            f"En el caso de {comp}, ¿hoy la conciliación de los cobros con tarjeta contra los cierres del volumétrico se procesa automáticamente hacia su ERP o todavía requiere revisión manual por estación?\n\n"
+            f"Si tiene 5 minutos esta semana, me gustaría entender cómo lo resuelven ustedes — no vengo con un pitch armado, vengo a escuchar su proceso primero.\n\n"
+            f"Saludos,\nAntonio Gutiérrez\nantonio.gutierrez@paymind.mx"
         )
     elif 'Cluster 2' in cluster:
         return (
-            f"Hola {nombre},\n\n"
-            f"Sabemos que en {comp} operan con su software volumétrico (ControlGAS, CG-MEX o Nexus Fuel) y no buscan complicaciones operativas ni cambiar de banco. "
-            f"Sin embargo, las fugas por errores de dedo de despachadores y el retraso de vales siguen afectando la liquidez.\n\n"
-            f"Con PayMind te conectas a tu sistema actual sin intrusividad:\n"
-            f"1. Conexión a la bomba: La terminal solo cobra el monto exacto del dispensario (cero errores ante el SAT).\n"
-            f"2. Unificación de Vales: Recibes tarjetas y vales (Edenred, Sodexo, SiVale) en 1 sola terminal con depósito T+1 para comprar pipas.\n"
-            f"3. Respaldo de escala: Tecnología validada en estaciones de Grupo ORSAN (Mobil).\n\n"
-            f"¿Platicamos 10 minutos este jueves sobre cómo agilizar el cobro en {comp} sin cambiar de proveedor?\n\n"
-            f"Saludos,\nAntonio Gutiérrez | PayMind"
+            f"{saludo}\n\n"
+            f"Una pregunta directa sobre la operación en sus estaciones: ¿hoy el despachador cobra con una terminal que jala el monto directo del volumétrico (ControlGAS, eGas, NexusFuel), o todavía se teclea manualmente lo que marca la bomba?\n\n"
+            f"Pregunto porque varía mucho estación por estación y me interesa entender su caso real antes de plantear si hay algo que valga la pena platicar.\n\n"
+            f"Saludos,\nAntonio Gutiérrez\nantonio.gutierrez@paymind.mx"
         )
     else:
         return (
-            f"Hola {nombre},\n\n"
-            f"Para estaciones independientes como {comp}, los bancos tradicionales suelen cobrar comisiones elevadas y entregar terminales fijas viejas que no se hablan con las bombas, obligando al despachador a teclear a mano.\n\n"
-            f"En PayMind te ofrecemos la solución 'llave en mano':\n"
-            f"1. SmartPOS Inalámbrica Nexgo: Terminal portátil con certificación antichispas (ATEX) y mejores tasas adquirentes.\n"
-            f"2. Terminal Bloqueada a la Bomba: Solo cobra el monto despachado, eliminando pérdidas por errores de tu personal.\n"
-            f"3. Depósito al día siguiente (T+1) en tarjetas bancarias y todos los vales (Edenred, Sodexo, SiVale).\n\n"
-            f"¿Te interesaría ver una demo de 10 minutos para equipar tus bombas?\n\n"
-            f"Saludos,\nAntonio Gutiérrez | PayMind"
+            f"{saludo}\n\n"
+            f"Le escribo con una duda puntual sobre su estación: ¿cómo se reparte hoy el cobro entre efectivo y tarjeta? Y de la parte con tarjeta, ¿se cobra al pie del auto o el cliente tiene que pasar a caja?\n\n"
+            f"No asumo que buscan cambiar nada — solo quiero entender cómo opera su isla antes de saber si hace sentido platicar.\n\n"
+            f"Saludos,\nAntonio Gutiérrez\nantonio.gutierrez@paymind.mx"
         )
 
 df['Cluster'] = df.apply(classify_cluster, axis=1)
@@ -91,7 +82,7 @@ snovio_df = pd.DataFrame({
     'Empresa': df['Compania'],
     'Cluster': df['Cluster'],
     'Estrategia_GTM': df['Estrategia_GTM'],
-    'Asunto_Paso1': df['Cluster'].apply(lambda c: 'Consolidación de conciliación y ruteo multibanco' if 'Cluster 1' in c else ('Agilizar cobro en bombas sin cambiar de sistema' if 'Cluster 2' in c else 'Equipa tus bombas con terminales inalámbricas T+1')),
+    'Asunto_Paso1': df['Cluster'].apply(lambda c: 'Conciliación de cobro en pista' if 'Cluster 1' in c else ('Cómo cobran hoy en la isla' if 'Cluster 2' in c else 'Mezcla de pago en su estación')),
     'Cuerpo_Paso1': df['Pitch_Paso1_Personalizado']
 })
 

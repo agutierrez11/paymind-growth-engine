@@ -8,7 +8,7 @@ df = pd.read_csv(csv_in, encoding='utf-8-sig')
 
 # Asuntos y Cuerpos limpios, genuinos, sin asumir dolores y sin clichés
 def clean_subject(cluster):
-    return "Consulta breve sobre cobro en bomba"
+    return "Cobro en bomba manteniendo banco actual"
 
 def clean_body(row):
     nombre = str(row.get('Nombre', 'Director')).strip()
@@ -19,9 +19,9 @@ def clean_body(row):
         
     return (
         f"{saludo}\n\n"
-        f"Soy especialista en medios de pago y adquirencia bancaria. No pretendo asumir cómo operan la cobranza hoy en día ni qué retos particulares tienen.\n\n"
-        f"Desde la parte técnica, ayudamos a estaciones de servicio a conectar terminales inalámbricas de cobro al pie del auto, manteniendo las mismas cuentas bancarias que ya utilizan (BBVA, BanBajío, Afirme) y con depósitos al día siguiente (T+1).\n\n"
-        f"Si están abiertos a evaluar alternativas para agilizar la cobranza con tarjeta, ¿valdrá la pena platicar 5 minutos esta semana?\n\n"
+        f"Le escribo brevemente para consultar si en sus estaciones están evaluando conectar terminales inalámbricas directamente en la isla de carga.\n\n"
+        f"Desde la parte técnica, es posible integrar el cobro al pie del auto manteniendo su banco adquirente actual (BBVA, BanBajío, Afirme) y recibiendo depósitos al día siguiente (T+1), sin modificar sus contratos financieros ni asumir cómo operan hoy.\n\n"
+        f"Si el tema está en agenda operativa, ¿valdrá la pena platicar 5 minutos esta semana para revisar cómo funciona la integración?\n\n"
         f"Saludos,\nAntonio Gutiérrez\nantonio.gutierrez@paymind.mx"
     )
 

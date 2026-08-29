@@ -97,7 +97,7 @@ antonio.gutierrez@paymind.mx
 * **Hipótesis:** Una pregunta simple de 2 líneas sin rodeos genera mayor tasa de respuesta.
 
 ```text
-Asunto: Pregunta rápida sobre cobro con tarjeta en dispensario
+Asunto: Consulta sobre cobro inalámbrico en dispensario
 
 Hola,
 
@@ -191,7 +191,7 @@ df['Cuerpo_Variante_C'] = (
     "Saludos,\nAntonio Gutiérrez\nantonio.gutierrez@paymind.mx"
 )
 
-df['Asunto_Variante_D'] = "Pregunta rápida sobre cobro con tarjeta en dispensario"
+df['Asunto_Variante_D'] = "Consulta sobre cobro inalámbrico en dispensario"
 df['Cuerpo_Variante_D'] = (
     "Hola,\n\n"
     "¿Están evaluando conectar terminales inalámbricas directamente a sus bombas para cobrar tarjetas sin cambiar de banco adquirente?\n\n"
