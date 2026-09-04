@@ -1,0 +1,21 @@
+# Python
+.venv
+__pycache__/
+uv.lock
+
+# Secrets & environment
+.env
+
+# Scan outputs & artifacts
+output/
+result.json
+*.csv
+validated_proxies.txt
+
+# Local-only files (scratch, private notes, AI working files)
+docs/local/
+*.local.*
+
+# Tooling
+rm_cache.py
+.playwright-mcp/

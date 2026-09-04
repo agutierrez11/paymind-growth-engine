@@ -1,0 +1,122 @@
+[
+  {
+    "Entidad": "Dimex",
+    "Dominio": "dimex.mx",
+    "Categoria": "SOFOM",
+    "Sede": "Monterrey / CDMX",
+    "Bounty": "$2,000 USD",
+    "Decisor_A_Cazar": "Director de Cobranza y Recuperación / Director de Riesgo",
+    "Google_LinkedIn_Dork": "site:linkedin.com/in (\"Dimex\") (\"Director de Cobranza\" OR \"Director de Crédito\" OR \"Director de Finanzas\" OR \"CFO\" OR \"Head of Payments\")",
+    "Dolor_Operativo": "Tasa de rechazo en cobro domiciliado de nómina/pensiones (hasta 25% de rebote por saldo insuficiente o cuenta bloqueada).",
+    "Gancho_Toku": "Motor de reintentos inteligentes de domiciliación bancaria y cobro por WhatsApp automatizado con enlace de pago para recuperar cartera en mora temprana sin costo de gestor telefónico.",
+    "Plantilla_Outreach": "Hola [Nombre], te contacto porque en Toku ayudamos a financieras de nómina y crédito personal a reducir la tasa de rechazo de domiciliación bancaria hasta en un 30% usando reintentos predictivos. ¿Tienes 10 minutos este jueves para ver cómo se integraría a su core?"
+  },
+  {
+    "Entidad": "Fincomún",
+    "Dominio": "fincomun.com.mx",
+    "Categoria": "SOFIPO",
+    "Sede": "CDMX",
+    "Bounty": "$2,000 USD",
+    "Decisor_A_Cazar": "CFO / Head de Pagos y Operaciones",
+    "Google_LinkedIn_Dork": "site:linkedin.com/in (\"Fincomún\") (\"Director de Cobranza\" OR \"Director de Crédito\" OR \"Director de Finanzas\" OR \"CFO\" OR \"Head of Payments\")",
+    "Dolor_Operativo": "Costo elevado de procesamiento de abonos y fricción en domiciliación SPEI recurrente para préstamos y ahorro programado.",
+    "Gancho_Toku": "API nativa de recaudación recurrente multi-riel (SPEI, Domiciliación y Tarjeta) con conciliación contable automática en tiempo real.",
+    "Plantilla_Outreach": "Hola [Nombre], veo que en Fincomún manejan alto volumen de colocación digital. En Toku conectamos directamente con el core financiero para automatizar la recaudación recurrente multi-riel y bajar el churn involuntario. ¿Te parecería revisar un caso de uso similar esta semana?"
+  },
+  {
+    "Entidad": "Credifiel",
+    "Dominio": "credifiel.com.mx",
+    "Categoria": "SOFOM",
+    "Sede": "CDMX",
+    "Bounty": "$2,000 USD",
+    "Decisor_A_Cazar": "Director de Cobranza y Recuperación / Director de Riesgo",
+    "Google_LinkedIn_Dork": "site:linkedin.com/in (\"Credifiel\") (\"Director de Cobranza\" OR \"Director de Crédito\" OR \"Director de Finanzas\" OR \"CFO\" OR \"Head of Payments\")",
+    "Dolor_Operativo": "Tasa de rechazo en cobro domiciliado de nómina/pensiones (hasta 25% de rebote por saldo insuficiente o cuenta bloqueada).",
+    "Gancho_Toku": "Motor de reintentos inteligentes de domiciliación bancaria y cobro por WhatsApp automatizado con enlace de pago para recuperar cartera en mora temprana sin costo de gestor telefónico.",
+    "Plantilla_Outreach": "Hola [Nombre], te contacto porque en Toku ayudamos a financieras de nómina y crédito personal a reducir la tasa de rechazo de domiciliación bancaria hasta en un 30% usando reintentos predictivos. ¿Tienes 10 minutos este jueves para ver cómo se integraría a su core?"
+  },
+  {
+    "Entidad": "Finvivir",
+    "Dominio": "finvivir.com.mx",
+    "Categoria": "SOFOM",
+    "Sede": "Guadalajara / CDMX",
+    "Bounty": "$2,000 USD",
+    "Decisor_A_Cazar": "Director de Cobranza y Recuperación / Director de Riesgo",
+    "Google_LinkedIn_Dork": "site:linkedin.com/in (\"Finvivir\") (\"Director de Cobranza\" OR \"Director de Crédito\" OR \"Director de Finanzas\" OR \"CFO\" OR \"Head of Payments\")",
+    "Dolor_Operativo": "Tasa de rechazo en cobro domiciliado de nómina/pensiones (hasta 25% de rebote por saldo insuficiente o cuenta bloqueada).",
+    "Gancho_Toku": "Motor de reintentos inteligentes de domiciliación bancaria y cobro por WhatsApp automatizado con enlace de pago para recuperar cartera en mora temprana sin costo de gestor telefónico.",
+    "Plantilla_Outreach": "Hola [Nombre], te contacto porque en Toku ayudamos a financieras de nómina y crédito personal a reducir la tasa de rechazo de domiciliación bancaria hasta en un 30% usando reintentos predictivos. ¿Tienes 10 minutos este jueves para ver cómo se integraría a su core?"
+  },
+  {
+    "Entidad": "Kubo Financiero",
+    "Dominio": "kubofinanciero.com",
+    "Categoria": "SOFIPO",
+    "Sede": "CDMX",
+    "Bounty": "$2,000 USD",
+    "Decisor_A_Cazar": "CFO / Head de Pagos y Operaciones",
+    "Google_LinkedIn_Dork": "site:linkedin.com/in (\"Kubo Financiero\") (\"Director de Cobranza\" OR \"Director de Crédito\" OR \"Director de Finanzas\" OR \"CFO\" OR \"Head of Payments\")",
+    "Dolor_Operativo": "Costo elevado de procesamiento de abonos y fricción en domiciliación SPEI recurrente para préstamos y ahorro programado.",
+    "Gancho_Toku": "API nativa de recaudación recurrente multi-riel (SPEI, Domiciliación y Tarjeta) con conciliación contable automática en tiempo real.",
+    "Plantilla_Outreach": "Hola [Nombre], veo que en Kubo Financiero manejan alto volumen de colocación digital. En Toku conectamos directamente con el core financiero para automatizar la recaudación recurrente multi-riel y bajar el churn involuntario. ¿Te parecería revisar un caso de uso similar esta semana?"
+  },
+  {
+    "Entidad": "Broxel FinTech Crédito",
+    "Dominio": "broxel.com",
+    "Categoria": "SOFIPO",
+    "Sede": "CDMX",
+    "Bounty": "$2,000 USD",
+    "Decisor_A_Cazar": "CFO / Head de Pagos y Operaciones",
+    "Google_LinkedIn_Dork": "site:linkedin.com/in (\"Broxel FinTech Crédito\") (\"Director de Cobranza\" OR \"Director de Crédito\" OR \"Director de Finanzas\" OR \"CFO\" OR \"Head of Payments\")",
+    "Dolor_Operativo": "Costo elevado de procesamiento de abonos y fricción en domiciliación SPEI recurrente para préstamos y ahorro programado.",
+    "Gancho_Toku": "API nativa de recaudación recurrente multi-riel (SPEI, Domiciliación y Tarjeta) con conciliación contable automática en tiempo real.",
+    "Plantilla_Outreach": "Hola [Nombre], veo que en Broxel FinTech Crédito manejan alto volumen de colocación digital. En Toku conectamos directamente con el core financiero para automatizar la recaudación recurrente multi-riel y bajar el churn involuntario. ¿Te parecería revisar un caso de uso similar esta semana?"
+  },
+  {
+    "Entidad": "Fondeadora",
+    "Dominio": "fondeadora.com",
+    "Categoria": "SOFIPO",
+    "Sede": "CDMX",
+    "Bounty": "$2,000 USD",
+    "Decisor_A_Cazar": "CFO / Head de Pagos y Operaciones",
+    "Google_LinkedIn_Dork": "site:linkedin.com/in (\"Fondeadora\") (\"Director de Cobranza\" OR \"Director de Crédito\" OR \"Director de Finanzas\" OR \"CFO\" OR \"Head of Payments\")",
+    "Dolor_Operativo": "Costo elevado de procesamiento de abonos y fricción en domiciliación SPEI recurrente para préstamos y ahorro programado.",
+    "Gancho_Toku": "API nativa de recaudación recurrente multi-riel (SPEI, Domiciliación y Tarjeta) con conciliación contable automática en tiempo real.",
+    "Plantilla_Outreach": "Hola [Nombre], veo que en Fondeadora manejan alto volumen de colocación digital. En Toku conectamos directamente con el core financiero para automatizar la recaudación recurrente multi-riel y bajar el churn involuntario. ¿Te parecería revisar un caso de uso similar esta semana?"
+  },
+  {
+    "Entidad": "Avanza Sólido",
+    "Dominio": "avanzasolido.com",
+    "Categoria": "SOFOM",
+    "Sede": "Chiapas / CDMX",
+    "Bounty": "$2,000 USD",
+    "Decisor_A_Cazar": "Director de Cobranza y Recuperación / Director de Riesgo",
+    "Google_LinkedIn_Dork": "site:linkedin.com/in (\"Avanza Sólido\") (\"Director de Cobranza\" OR \"Director de Crédito\" OR \"Director de Finanzas\" OR \"CFO\" OR \"Head of Payments\")",
+    "Dolor_Operativo": "Tasa de rechazo en cobro domiciliado de nómina/pensiones (hasta 25% de rebote por saldo insuficiente o cuenta bloqueada).",
+    "Gancho_Toku": "Motor de reintentos inteligentes de domiciliación bancaria y cobro por WhatsApp automatizado con enlace de pago para recuperar cartera en mora temprana sin costo de gestor telefónico.",
+    "Plantilla_Outreach": "Hola [Nombre], te contacto porque en Toku ayudamos a financieras de nómina y crédito personal a reducir la tasa de rechazo de domiciliación bancaria hasta en un 30% usando reintentos predictivos. ¿Tienes 10 minutos este jueves para ver cómo se integraría a su core?"
+  },
+  {
+    "Entidad": "Bodesa (Crédito el Bodegón)",
+    "Dominio": "elbodegon.com.mx",
+    "Categoria": "Retail Credit",
+    "Sede": "Colima / Jalisco",
+    "Bounty": "$2,000 USD",
+    "Decisor_A_Cazar": "Director de Crédito y Cobranza / Director de Finanzas",
+    "Google_LinkedIn_Dork": "site:linkedin.com/in (\"Bodesa (Crédito el Bodegón)\") (\"Director de Cobranza\" OR \"Director de Crédito\" OR \"Director de Finanzas\" OR \"CFO\" OR \"Head of Payments\")",
+    "Dolor_Operativo": "Abonos semanales o quincenales en efectivo que dependen de que el cliente vaya a la tienda física; alta mora cuando el cliente no asiste.",
+    "Gancho_Toku": "Cobro digital omnicanal recurrente domiciliado a tarjeta de débito o nómina con recordatorios automatizados antes de la fecha de corte del abono.",
+    "Plantilla_Outreach": "Hola [Nombre], te escribo porque trabajamos con grandes cadenas de crédito al consumo ayudándoles a mover hasta el 40% de sus cobros en tienda a domiciliación digital automática sin perder clientes. ¿Podríamos coordinar una llamada de 15 minutos con tu equipo de crédito?"
+  },
+  {
+    "Entidad": "Crediland",
+    "Dominio": "crediland.com.mx",
+    "Categoria": "Retail Credit",
+    "Sede": "Sinaloa / Sonora",
+    "Bounty": "$2,000 USD",
+    "Decisor_A_Cazar": "Director de Crédito y Cobranza / Director de Finanzas",
+    "Google_LinkedIn_Dork": "site:linkedin.com/in (\"Crediland\") (\"Director de Cobranza\" OR \"Director de Crédito\" OR \"Director de Finanzas\" OR \"CFO\" OR \"Head of Payments\")",
+    "Dolor_Operativo": "Abonos semanales o quincenales en efectivo que dependen de que el cliente vaya a la tienda física; alta mora cuando el cliente no asiste.",
+    "Gancho_Toku": "Cobro digital omnicanal recurrente domiciliado a tarjeta de débito o nómina con recordatorios automatizados antes de la fecha de corte del abono.",
+    "Plantilla_Outreach": "Hola [Nombre], te escribo porque trabajamos con grandes cadenas de crédito al consumo ayudándoles a mover hasta el 40% de sus cobros en tienda a domiciliación digital automática sin perder clientes. ¿Podríamos coordinar una llamada de 15 minutos con tu equipo de crédito?"
+  }
+]

@@ -1,0 +1,112 @@
+[
+  {
+    "ID": 1,
+    "Entidad": "Credifiel",
+    "Categoria": "SOFOM ENR",
+    "Sede": "CDMX",
+    "Stack_Tecnico_Detectado": "Rieles STP (Cuentas CLABE únicas para crédito), dispersión SPEI y convenios de descuento con sindicatos de gobierno.",
+    "Dolor_Operativo_Real": "Desfase en retención de dependencias públicas. Cuando el empleado cambia de banco nómina, el segundo riel de domiciliación rebota por falta de reintentos predictivos.",
+    "Marco_Regulatorio_Impacto": "Circular Banxico 14/2017 (reversión de domiciliaciones objetadas) y supervisión CNBV en PLD.",
+    "Gancho_Quirurgico": "Optimización del segundo riel de domiciliación CLABE vía STP con reintentos inteligentes en días de quincena gubernamental.",
+    "Decisor": "Director de Cobranza Gubernamental / CFO"
+  },
+  {
+    "ID": 2,
+    "Entidad": "Dimex Capital",
+    "Categoria": "SOFOM ENR",
+    "Sede": "Monterrey / CDMX",
+    "Stack_Tecnico_Detectado": "Calificación Fitch AAFC2-(mex). Modelo de descuento nómina/pensiones (IMSS/ISSSTE) + Domiciliación bancaria complementaria.",
+    "Dolor_Operativo_Real": "Fitch Ratings supervisa de forma continua la tasa de recuperación de cartera en mora temprana. Los rebotes en domiciliación bancaria tradicional elevan el costo de cobranza judicial.",
+    "Marco_Regulatorio_Impacto": "Veto a la cobranza delegada de nómina; dependencia total de rieles de domiciliación privada con respaldo digital.",
+    "Gancho_Quirurgico": "Recuperación de cartera en mora temprana mediante reintentos predictivos antes de pasar cuentas a despachos de cobranza externa.",
+    "Decisor": "Director de Cobranza y Recuperación / CFO"
+  },
+  {
+    "ID": 3,
+    "Entidad": "Fincomún",
+    "Categoria": "SOFIPO",
+    "Sede": "CDMX",
+    "Stack_Tecnico_Detectado": "Core bancario Oracle Flexcube, liquidación directa en rieles STP (SPEI), CoDi y App FCil.",
+    "Dolor_Operativo_Real": "Costos operativos altísimos de cobranza en calle y gestores domiciliarios. Su app no cuenta con motor omnicanal de cobro recurrente automático.",
+    "Marco_Regulatorio_Impacto": "Restricciones del REDECO (CONDUSEF) contra cobranza presencial y telefónica invasiva.",
+    "Gancho_Quirurgico": "Integración API directa a Oracle Flexcube y STP para cobro recurrente vía WhatsApp y domiciliación automatizada.",
+    "Decisor": "CFO / Director de Operaciones y Medios de Pago"
+  },
+  {
+    "ID": 4,
+    "Entidad": "Finvivir",
+    "Categoria": "SOFOM ENR",
+    "Sede": "Guadalajara / CDMX",
+    "Stack_Tecnico_Detectado": "Red de corresponsalías (Oxxo, Paynet) y cobranza por promotores comunitarios en campo.",
+    "Dolor_Operativo_Real": "Comisión de 12 a 18 pesos por pago en tiendas de conveniencia y desfase de 24-48 horas en conciliación de fichas bancarias.",
+    "Marco_Regulatorio_Impacto": "Obligación de reporte oportuno a Buró/Círculo de Crédito y conciliación contable diaria.",
+    "Gancho_Quirurgico": "Sustitución de abonos en efectivo por cobros domiciliados a tarjeta con liga de recordatorio WhatsApp 24 horas antes del corte.",
+    "Decisor": "Director de Crédito y Cobranza / Director de Finanzas"
+  },
+  {
+    "ID": 5,
+    "Entidad": "Avanza Sólido",
+    "Categoria": "SOFOM ENR",
+    "Sede": "Chiapas / CDMX",
+    "Stack_Tecnico_Detectado": "Fondeo FIRA y banca de desarrollo. Cobranza regional dispersa en el sureste mexicano.",
+    "Dolor_Operativo_Real": "Mora estacional por ciclos agrícolas y dificultad física de desplazar gestores de cobranza en zonas semi-urbanas.",
+    "Marco_Regulatorio_Impacto": "Cumplimiento de covenants financieros con fondeadores institucionales sobre morosidad máxima.",
+    "Gancho_Quirurgico": "Cobranza remota automatizada sin presencia física de gestores para rescatar pagos en cuanto caen subsidios o remesas.",
+    "Decisor": "Director de Operaciones / Finanzas"
+  },
+  {
+    "ID": 6,
+    "Entidad": "Broxel FinTech Crédito",
+    "Categoria": "SOFIPO / FinTech",
+    "Sede": "CDMX",
+    "Stack_Tecnico_Detectado": "Emisor principal Mastercard/Visa, participante directo en STP, plataforma multi-producto (vales, crédito, remesas).",
+    "Dolor_Operativo_Real": "Rechazos bancarios en cobro recurrente de membresías, seguros asociados a tarjetas y pago mínimo de líneas de crédito.",
+    "Marco_Regulatorio_Impacto": "Ley FinTech (Disposiciones aplicables a Instituciones de Fondos de Pago Electrónico).",
+    "Gancho_Quirurgico": "Motor de reintentos inteligentes de débito y cobro multi-riel (SPEI + Tarjeta) para abonos de crédito revolvente.",
+    "Decisor": "Head of Lending / VP de Medios de Pago"
+  },
+  {
+    "ID": 7,
+    "Entidad": "Kubo Financiero",
+    "Categoria": "SOFIPO Digital",
+    "Sede": "CDMX",
+    "Stack_Tecnico_Detectado": "Arquitectura Cloud (AWS), conexión directa a STP (SPEI), plataforma de captación de ahorro e inversión P2P.",
+    "Dolor_Operativo_Real": "Churn involuntario en planes de ahorro programado y pagos de crédito cuando el banco emisor bloquea transacciones no presenciales.",
+    "Marco_Regulatorio_Impacto": "Disposiciones de la CNBV para SOFIPOs Nivel IV y autenticación de usuarios.",
+    "Gancho_Quirurgico": "Reducción de rechazos de pago recurrente en productos de ahorro programado e inversión mediante domiciliación con mandatos validados.",
+    "Decisor": "CFO / Head de Producto Financiero"
+  },
+  {
+    "ID": 8,
+    "Entidad": "Fondeadora",
+    "Categoria": "SOFIPO Digital",
+    "Sede": "CDMX",
+    "Stack_Tecnico_Detectado": "Licencia bancaria SOFIPO (Apoyo Múltiple), Neobanco app-first, tarjeta de crédito no garantizada.",
+    "Dolor_Operativo_Real": "Cobranza de saldo insoluto en tarjetas de crédito de ticket bajo ($2,000 a $10,000 MXN) donde contratar despachos de cobranza es inviable económicamente.",
+    "Marco_Regulatorio_Impacto": "Reservas preventivas de cartera crediticia exigidas por la CNBV.",
+    "Gancho_Quirurgico": "Cobranza automatizada vía WhatsApp con ligas de pago de 1 clic para cartera joven sin fricción de call center.",
+    "Decisor": "Head of Risk & Collections / CFO"
+  },
+  {
+    "ID": 9,
+    "Entidad": "Crediclub (SuperTasas)",
+    "Categoria": "SOFIPO",
+    "Sede": "Monterrey / CDMX",
+    "Stack_Tecnico_Detectado": "Core bancario propietario, captación de inversión fija (SuperTasas) y crédito a mujeres emprendedoras.",
+    "Dolor_Operativo_Real": "Retención y cobro de pagarés de microempresarios que manejan cuentas en múltiples bancos comerciales (BBVA, Banorte, Santander).",
+    "Marco_Regulatorio_Impacto": "Regulación CNBV sobre índice de capitalización (ICAP) y morosidad de cartera grupal.",
+    "Gancho_Quirurgico": "Enrutamiento inteligente de domiciliaciones que detecta la hora exacta de dispersión en cuentas bancarias comerciales.",
+    "Decisor": "Director de Crédito y Riesgo / CFO"
+  },
+  {
+    "ID": 10,
+    "Entidad": "Bodesa (Crédito El Bodegón)",
+    "Categoria": "Retail Credit",
+    "Sede": "Colima / Jalisco / Occidente",
+    "Stack_Tecnico_Detectado": "Sistema de punto de venta (POS) propio en mueblerías con cobranza física en caja.",
+    "Dolor_Operativo_Real": "El 60% de los clientes paga en mostrador. Si el cliente no va a la tienda el sábado por tráfico o lluvia, la cuenta cae en mora inmediata de 7 días.",
+    "Marco_Regulatorio_Impacto": "Ley Federal de Protección al Consumidor (PROFECO) sobre cobros extraordinarios de cobranza.",
+    "Gancho_Quirurgico": "Migración de abonos de mostrador a cobro recurrente domiciliado en tarjeta de débito del cliente sin obligarlo a ir a la sucursal.",
+    "Decisor": "Director de Crédito y Cobranza Retail / Director General"
+  }
+]

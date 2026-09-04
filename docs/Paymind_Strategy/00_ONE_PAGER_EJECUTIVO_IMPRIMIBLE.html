@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resumen Ejecutivo: Plan GTM In-House vs Agencia Externa | PayMind</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
+        
+        :root {
+            --primary: #0f172a;
+            --accent: #2563eb;
+            --success: #16a34a;
+            --danger: #dc2626;
+            --bg: #f8fafc;
+            --card: #ffffff;
+            --border: #e2e8f0;
+            --text: #334155;
+            --heading: #0f172a;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 30px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .page {
+            background-color: var(--card);
+            width: 100%;
+            max-width: 900px;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
+            border: 1px solid var(--border);
+        }
+
+        .header {
+            border-bottom: 3px solid var(--accent);
+            padding-bottom: 20px;
+            margin-bottom: 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--heading);
+            letter-spacing: -0.5px;
+        }
+
+        .header .meta {
+            font-size: 13px;
+            color: #64748b;
+            text-align: right;
+        }
+
+        .subtitle {
+            font-size: 14px;
+            color: #475569;
+            margin-top: 5px;
+        }
+
+        .table-container {
+            margin: 20px 0;
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+
+        th {
+            background-color: #f1f5f9;
+            color: var(--heading);
+            text-align: left;
+            padding: 12px;
+            font-weight: 700;
+            border-bottom: 2px solid var(--border);
+        }
+
+        td {
+            padding: 12px;
+            border-bottom: 1px solid var(--border);
+            vertical-align: top;
+        }
+
+        .highlight-green {
+            color: var(--success);
+            font-weight: 700;
+        }
+
+        .highlight-red {
+            color: var(--danger);
+            font-weight: 700;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .badge-green { background: #dcfce7; color: #15803d; }
+        .badge-red { background: #fee2e2; color: #b91c1c; }
+
+        .section-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--heading);
+            margin-top: 25px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .card {
+            background: #f8fafc;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 15px;
+        }
+
+        .card h4 {
+            margin: 0 0 8px 0;
+            font-size: 14px;
+            color: var(--heading);
+        }
+
+        .card p {
+            margin: 0;
+            font-size: 12px;
+            color: #475569;
+            line-height: 1.5;
+        }
+
+        .roi-box {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 25px;
+        }
+
+        .roi-box h3 {
+            margin: 0 0 10px 0;
+            color: #38bdf8;
+            font-size: 16px;
+        }
+
+        .roi-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .roi-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 12px;
+            border-radius: 6px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .roi-item .val {
+            font-size: 18px;
+            font-weight: 800;
+            color: #4ade80;
+            margin-top: 4px;
+        }
+
+        .roi-item .lbl {
+            font-size: 11px;
+            color: #94a3b8;
+        }
+
+        .footer-quote {
+            margin-top: 25px;
+            padding: 15px;
+            background: #eff6ff;
+            border-left: 4px solid var(--accent);
+            border-radius: 0 8px 8px 0;
+            font-size: 13px;
+            color: #1e40af;
+            font-weight: 600;
+            line-height: 1.5;
+        }
+
+        @media print {
+            body { padding: 0; background: none; }
+            .page { box-shadow: none; border: none; padding: 0; max-width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="page">
+    <div class="header">
+        <div>
+            <h1>RESUMEN EJECUTIVO: PLAN GTM IN-HOUSE</h1>
+            <div class="subtitle">Comparativa de Eficiencia: Agencia Externa vs. Motor de Crecimiento PayMind</div>
+        </div>
+        <div class="meta">
+            <strong>Para:</strong> Dirección General / CEO<br>
+            <strong>De:</strong> Antonio Gutiérrez<br>
+            <strong>Fecha:</strong> 27 de Agosto, 2026
+        </div>
+    </div>
+
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Criterio Estratégico</th>
+                    <th>🔴 Agencia Externa ($30k/mes)</th>
+                    <th>🟢 Motor In-House (PayMind Engine)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Costo Operativo (4 Meses)</strong></td>
+                    <td class="highlight-red">$120,000 MXN</td>
+                    <td class="highlight-green">~$4,000 MXN <span class="badge badge-green">96% Ahorro</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Inversión Única de Equipo</strong></td>
+                    <td>$0 (Usan sus equipos)</td>
+                    <td class="highlight-green"><strong>$10,000 a $30,000 MXN</strong> (1 Laptop)</td>
+                </tr>
+                <tr>
+                    <td><strong>Ahorro Directo Neto</strong></td>
+                    <td>$0 MXN</td>
+                    <td class="highlight-green"><strong>$86,000 a $106,000 MXN Netos</strong></td>
+                </tr>
+                <tr>
+                    <td><strong>Tiempo a Primeros Resultados</strong></td>
+                    <td>4 Meses ("Preparación")</td>
+                    <td class="highlight-green"><strong>Inmediato (Día 1)</strong></td>
+                </tr>
+                <tr>
+                    <td><strong>Base de Datos Inicial</strong></td>
+                    <td>0 Prospects</td>
+                    <td class="highlight-green"><strong>433 Gasolineras Segmentadas</strong></td>
+                </tr>
+                <tr>
+                    <td><strong>Especialización Sectorial</strong></td>
+                    <td>Genérica (Posteos de "branding")</td>
+                    <td class="highlight-green"><strong>Anexo 30 SAT, Nexgo ATEX, Ruteo Multibanco</strong></td>
+                </tr>
+                <tr>
+                    <td><strong>Herramientas de Conversión</strong></td>
+                    <td>Banners estáticos borrador</td>
+                    <td class="highlight-green"><strong>Calculadora Web</strong> + 2 Lead Magnets</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="section-title">🎯 4 Activos In-House Listos para Desplegar HOY</div>
+    <div class="grid-2">
+        <div class="card">
+            <h4>1. Base de Datos 433 Gasolineras (3 Clusters)</h4>
+            <p><strong>Cluster 1:</strong> 10 Macro-Grupos (ABM Ruteo - Modelo ORSAN).<br>
+            <strong>Cluster 2:</strong> 331 Cadenas (eGas, ControlGAS, Nexus).<br>
+            <strong>Cluster 3:</strong> 92 PYMEs (Adquirencia Directa Llave en Mano).</p>
+        </div>
+        <div class="card">
+            <h4>2. 2 Lead Magnets Ejecutivos (1 Página)</h4>
+            <p><strong>Operativo/Fiscal:</strong> Check-Up Anexo 30 SAT / PROFECO.<br>
+            <strong>Financiero:</strong> Matriz Ahorro 0.6% por Litro (Recuperar 1 Pipa al año por estación).</p>
+        </div>
+        <div class="card">
+            <h4>3. Estrategia de Océano Azul</h4>
+            <p>Captura en bloque de +3,500 estaciones integrándonos a <strong>eGas (+1,500 est.)</strong> y <strong>Gasomarshal Odoo (+350 est.)</strong> sin competir con ATIO.</p>
+        </div>
+        <div class="card">
+            <h4>4. Calculadora Web Interactiva</h4>
+            <p>Plataforma en vivo (<code>paymind-growth-engine.pages.dev</code>) que proyecta el ahorro en comisiones en tiempo real ante el cliente.</p>
+        </div>
+    </div>
+
+    <div class="roi-box">
+        <h3>📈 Retorno de Inversión (ROI) Estimado para la Dirección</h3>
+        <div class="roi-grid">
+            <div class="roi-item">
+                <div class="lbl">Inversión Única Laptop</div>
+                <div class="val" style="color: #38bdf8;">$10k - $30k</div>
+            </div>
+            <div class="roi-item">
+                <div class="lbl">Probabilidad Cierre (≥1 Grupo)</div>
+                <div class="val">90.8%</div>
+            </div>
+            <div class="roi-item">
+                <div class="lbl">Ingreso Recurrente Anual</div>
+                <div class="val">$324k - $486k</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-quote">
+        💡 <strong>Conclusión Ejecutiva:</strong> Pagar $30,000 MXN/mes a una agencia para que aprenda en 4 meses cómo funciona una gasolinera es un desperdicio de capital. Con una inversión única de $10k-$30k en una laptop de trabajo, activamos hoy mismo la prospección de 433 gasolineras con un retorno esperado de más de $300,000 MXN anuales.
+    </div>
+</div>
+
+</body>
+</html>
